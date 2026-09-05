@@ -1,0 +1,9 @@
+# Kindle busybox sh chokes on CRLF; keep every text file LF regardless of core.autocrlf
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.png binary
+*.ttf binary
