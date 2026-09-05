@@ -21,8 +21,19 @@
 
 ART_DIR="${ART_DIR:-/mnt/us/artframe}"
 LOG="$ART_DIR/logs/artframe.log"
+# A short power-button press while asleep = "next picture". Each press adds 1
+# to this file, which shifts the whole rotation forward. Delete it to reset.
+OFFSET_FILE="$ART_DIR/offset.txt"
+EARLY_WAKE=0
 
 . "$ART_DIR/config.sh"
+
+read_offset() {
+  o=""
+  [ -f "$OFFSET_FILE" ] && o=$(tr -dc '0-9' <"$OFFSET_FILE")
+  [ -z "$o" ] && o=0
+  echo "$o"
+}
 
 # --- logging ---------------------------------------------------------------
 
@@ -99,12 +110,12 @@ wait_for_wifi() {
 # --- pool day-index arithmetic (pure; testable) -----------------------------
 
 # Sets globals IDX (1-based) and IMG_FILE ("NNN.png").
-# Args: count start now interval_days
+# Args: count start now interval_days [offset]
 compute_pool_index() {
-  count="$1"; start="$2"; now="$3"; interval="$4"
+  count="$1"; start="$2"; now="$3"; interval="$4"; offset="${5:-0}"
   day=$(( now / 86400 ))
   [ "$day" -lt "$start" ] && day=$start
-  IDX=$(( ((day - start) / interval) % count + 1 ))
+  IDX=$(( ((day - start) / interval + offset) % count + 1 ))
   IMG_FILE=$(printf '%03d.png' "$IDX")
 }
 
@@ -113,7 +124,7 @@ compute_pool_index() {
 pool_index_now() {
   count="$1"; start="$2"
   now=$(date -u +%s)
-  compute_pool_index "$count" "$start" "$now" "$INTERVAL_DAYS"
+  compute_pool_index "$count" "$start" "$now" "$INTERVAL_DAYS" "$(read_offset)"
 }
 
 # --- next-wake arithmetic (pure; testable) ----------------------------------
@@ -140,35 +151,62 @@ next_wake_now() {
 
 # --- suspend / RTC alarm -----------------------------------------------------
 
-# Writes the RTC wakealarm for the given number of seconds from now, reads
-# it back and logs it, falling back from rtc1 to rtc0 if the read-back is
-# empty. Attempts "echo mem > /sys/power/state" once and reports whether the
-# device appeared to actually sleep (elapsed >= 30s) or was refused (fast
-# return). Returns 0 if it slept, 1 if refused.
+# Arms the RTC wakealarm for $1 seconds from now (clearing any pending alarm
+# first), reads it back, and falls back from rtc1 to rtc0 if the read-back is
+# empty. Sets RTC_USED and ALARM_AT (epoch seconds, or empty on failure).
+arm_alarm() {
+  secs="$1"
+  RTC_USED=/sys/class/rtc/rtc1
+  echo "" >"$RTC_USED/wakealarm" 2>/dev/null
+  echo "+$secs" >"$RTC_USED/wakealarm" 2>/dev/null
+  ALARM_AT=$(cat "$RTC_USED/wakealarm" 2>/dev/null)
+  if [ -z "$ALARM_AT" ]; then
+    log "rtc1 wakealarm read back empty, falling back to rtc0"
+    RTC_USED=/sys/class/rtc/rtc0
+    echo "" >"$RTC_USED/wakealarm" 2>/dev/null
+    echo "+$secs" >"$RTC_USED/wakealarm" 2>/dev/null
+    ALARM_AT=$(cat "$RTC_USED/wakealarm" 2>/dev/null)
+  fi
+  [ -n "$ALARM_AT" ]
+}
+
+# Arms the alarm, suspends with "echo mem > /sys/power/state", and classifies
+# the return: refused (write failed or came back within 3 s) -> return 1;
+# woke at our alarm -> EARLY_WAKE=0; woke before our alarm (power button, or
+# another RTC alarm the system had pending on rtc0) -> EARLY_WAKE=1 for a
+# button press, 0 if it matched that other alarm. Returns 0 whenever the
+# device actually slept.
 suspend_once() {
   secs="$1"
-  rtc=/sys/class/rtc/rtc1
-  echo "" >"$rtc/wakealarm" 2>/dev/null
-  echo "+$secs" >"$rtc/wakealarm" 2>/dev/null
-  wa=$(cat "$rtc/wakealarm" 2>/dev/null)
-  if [ -z "$wa" ]; then
-    log "rtc1 wakealarm read back empty, falling back to rtc0"
-    rtc=/sys/class/rtc/rtc0
-    echo "" >"$rtc/wakealarm" 2>/dev/null
-    echo "+$secs" >"$rtc/wakealarm" 2>/dev/null
-    wa=$(cat "$rtc/wakealarm" 2>/dev/null)
-  fi
-  se=$(cat "$rtc/since_epoch" 2>/dev/null)
-  log "wakealarm=$wa since_epoch=$se rtc=$rtc"
+  arm_alarm "$secs"
+  se=$(cat "$RTC_USED/since_epoch" 2>/dev/null)
+  other_alarm=""
+  [ "$RTC_USED" != /sys/class/rtc/rtc0 ] && other_alarm=$(cat /sys/class/rtc/rtc0/wakealarm 2>/dev/null)
+  log "wakealarm=$ALARM_AT since_epoch=$se rtc=$RTC_USED rtc0_alarm=[$other_alarm]"
   before=$(date -u +%s)
-  echo mem >/sys/power/state 2>/dev/null
+  if ! echo mem >/sys/power/state 2>/dev/null; then
+    log "suspend write to /sys/power/state failed - refused"
+    return 1
+  fi
   after=$(date -u +%s)
   elapsed=$(( after - before ))
-  if [ "$elapsed" -lt 30 ]; then
+  if [ "$elapsed" -lt 3 ]; then
     log "suspend returned after ${elapsed}s - refused"
     return 1
   fi
-  log "resumed after ${elapsed}s asleep"
+  EARLY_WAKE=0
+  rtc_now=$(cat "$RTC_USED/since_epoch" 2>/dev/null)
+  case "$rtc_now$ALARM_AT" in *[!0-9]*|'') rtc_now="" ;; esac
+  if [ -n "$rtc_now" ] && [ "$rtc_now" -lt $(( ALARM_AT - 5 )) ]; then
+    if [ -n "$other_alarm" ] && [ "$rtc_now" -ge $(( other_alarm - 5 )) ] && [ "$rtc_now" -le $(( other_alarm + 5 )) ]; then
+      log "woke early after ${elapsed}s at the system's rtc0 alarm, not a button press"
+    else
+      EARLY_WAKE=1
+      log "woke early after ${elapsed}s (our alarm was $(( ALARM_AT - rtc_now ))s away): treating as a power-button press"
+    fi
+  else
+    log "resumed after ${elapsed}s asleep"
+  fi
   return 0
 }
 
@@ -204,6 +242,22 @@ main() {
   while true; do
     rotate_log_if_needed
     log "--- iteration start ---"
+
+    # Safety net: if anything else (powerd reacting to the button, a crash)
+    # suspends the device mid-iteration, this alarm still brings it back.
+    # enter_sleep replaces it with the real one at the end of the iteration.
+    arm_alarm "$RETRY_SECS"
+
+    if [ "$EARLY_WAKE" = 1 ]; then
+      EARLY_WAKE=0
+      off=$(( $(read_offset) + 1 ))
+      echo "$off" >"$OFFSET_FILE"
+      log "power button: skipping to the next picture (offset now $off)"
+      lipc-set-prop com.lab126.powerd preventScreenSaver 1 2>/dev/null
+      lipc-set-prop com.lab126.powerd deferSuspend 60000 2>/dev/null
+      log "powerd after button wake: $(lipc-get-prop com.lab126.powerd status 2>&1 | tr '\n' ' ' | tr -s ' ')"
+      log "dmesg tail: $(dmesg 2>/dev/null | tail -6 | tr '\n' '|')"
+    fi
 
     batt=$(gasgauge-info -c 2>/dev/null | tr -dc '0-9')
     [ -z "$batt" ] && { log "gasgauge-info returned no battery reading, assuming OK"; batt=100; }
@@ -242,7 +296,7 @@ main() {
     fi
 
     pool_index_now "$count" "$start"
-    log "day-index: count=$count start=$start interval=${INTERVAL_DAYS} -> idx=$IDX file=$IMG_FILE"
+    log "day-index: count=$count start=$start interval=${INTERVAL_DAYS} offset=$(read_offset) -> idx=$IDX file=$IMG_FILE"
 
     NEW_PNG="$ART_DIR/new.png"
     if ! sh "$ART_DIR/fetch.sh" "$BASE_URL/art/$IMG_FILE" "$NEW_PNG" png; then

@@ -141,6 +141,21 @@ Do these in order the first time; after that, just leave it running.
    `INTERVAL_DAYS` if you want something other than the default (daily at
    09:00 UTC), copy `config.sh` back over, and tap `ArtFrame-Start` again.
 
+## Changing the picture with the power button
+
+While the frame is asleep, a **short press of the power button** wakes the
+Kindle before its alarm; the loop treats that as "next picture", adds 1 to
+`D:\artframe\offset.txt`, fetches and paints the next image in the rotation,
+and goes back to sleep. Press once, wait for the new picture (about 15 s),
+then press again if you want to keep going. The offset is permanent: the
+whole rotation shifts forward, so skipped pictures do not come back until
+the pool wraps. Delete `offset.txt` (after a reboot, over USB) to reset.
+
+Two details: a wake that coincides with a pending system alarm on `rtc0` is
+not counted as a press, and plugging in USB also wakes the device, so a
+plug-in while asleep may register as one skip. Reboot before connecting to
+avoid that. Do not hold the button: a long hold is the hardware reboot.
+
 ## Stopping the loop, and where the logs are
 
 `loop.sh` deliberately never gives you a "stop" scriptlet, because it stops

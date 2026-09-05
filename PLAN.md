@@ -226,6 +226,7 @@ every painting fully visible with a legible caption; `index.json` matches.
 **Acceptance:** two consecutive scheduled updates observed in the log; battery drop per day noted in README.
 
 ### Phase 5 — Nice-to-haves (after everything above works)
+* **Power button = next picture** — DONE 2026-09-05. An early wake from suspend that does not match a pending rtc0 alarm increments `artframe/offset.txt`, which shifts the pool index (`idx = ((day-start)/INTERVAL_DAYS + offset) % count + 1`). A safety alarm of `RETRY_SECS` is armed at the top of every iteration so a powerd-initiated suspend can never strand the device. *To verify on device: whether powerd suspends the loop mid-iteration after a button wake (the log records powerd status and a dmesg tail on each button wake).*
 * **Auto-start on boot** (survives battery death): scriptlet that installs an upstart job in `/etc/upstart/artframe.conf` (`mntroot rw` first).
 * **Local pool mirror**: copy `docs/art` to `D:\artframe\pool` once over USB; the loop displays from the local pool and only uses Wi-Fi to sync `pool.txt`
   and any new files, so it works even when Wi-Fi is down.
