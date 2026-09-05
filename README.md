@@ -149,8 +149,7 @@ the hardware itself:
 
 * **Hold the power button for about 40 seconds** until the device reboots.
   The normal Kindle UI comes back on its own; you don't need to do anything
-  else. (While the loop is running and the framework is stopped, the
-  Kindle will not appear as a USB drive — reboot first, *then* plug in USB.)
+  else. (The Kindle still exports its USB drive while the loop runs, but the loop may be writing files at that moment, so reboot first, *then* plug in USB.)
 * **Logs**: `D:\artframe\logs\artframe.log` — every step of every iteration
   (battery %, Wi-Fi wait, which file was fetched, paint, the RTC alarm
   read-back, suspend/resume timing) is appended with a UTC timestamp. The

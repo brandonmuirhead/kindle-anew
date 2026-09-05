@@ -1,0 +1,67 @@
+[2026-09-05 03:24:01] backlight nodes: total 0 drwxr-xr-x    2 root     root             0 Sep  4 19:20 . drwxr-xr-x   27 root     root             0 Sep  4 19:20 .. lrwxrwxrwx    1 root     root             0 Sep  4 19:20 max77696-bl -> ../../devices/platform/imx-i2c.0/i2c-0/0-003c/max77696-bl.0/backlight/max77696-bl 
+[2026-09-05 03:24:01] flIntensity now: 0
+lab126_gui stop/waiting
+[2026-09-05 03:24:13] --- iteration start ---
+[2026-09-05 03:24:13] battery=100%
+[2026-09-05 03:24:13] wifi up after 0s
+[2026-09-05 03:24:14] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-05 03:24:15] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-05 03:24:15] day-index: count=160 start=20701 interval=1 -> idx=1 file=001.png
+[2026-09-05 03:24:15] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-05 03:24:17] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G1
+[2026-09-05 03:24:18] painted 001.png
+[2026-09-05 03:24:22] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-05 03:24:22] sleeping 180s, battery 100%
+[2026-09-05 03:24:22] wakealarm=1788578842 since_epoch=1788578662 rtc=/sys/class/rtc/rtc1
+[2026-09-05 03:27:23] resumed after 181s asleep
+[2026-09-05 03:27:23] --- iteration start ---
+[2026-09-05 03:27:23] battery=99%
+[2026-09-05 03:27:34] wifi up after 1s
+[2026-09-05 03:27:35] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-05 03:27:35] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-05 03:27:35] day-index: count=160 start=20701 interval=1 -> idx=1 file=001.png
+[2026-09-05 03:27:35] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-05 03:27:37] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G1
+[2026-09-05 03:27:39] painted 001.png
+[2026-09-05 03:27:42] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-05 03:27:42] sleeping 180s, battery 99%
+[2026-09-05 03:27:42] wakealarm=1788579041 since_epoch=1788578861 rtc=/sys/class/rtc/rtc1
+[2026-09-05 03:30:43] resumed after 181s asleep
+[2026-09-05 03:30:43] --- iteration start ---
+[2026-09-05 03:30:43] battery=99%
+[2026-09-05 03:30:43] wifi up after 0s
+[2026-09-05 03:30:43] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-05 03:30:44] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-05 03:30:44] day-index: count=160 start=20701 interval=1 -> idx=1 file=001.png
+[2026-09-05 03:30:44] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-05 03:30:49] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G1
+[2026-09-05 03:30:51] painted 001.png
+[2026-09-05 03:30:54] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-05 03:30:54] sleeping 180s, battery 99%
+[2026-09-05 03:30:55] wakealarm=1788579233 since_epoch=1788579054 rtc=/sys/class/rtc/rtc1
+[2026-09-05 03:33:55] resumed after 180s asleep
+[2026-09-05 03:33:55] --- iteration start ---
+[2026-09-05 03:33:55] battery=99%
+[2026-09-05 03:34:07] wifi up after 1s
+[2026-09-05 03:34:07] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-05 03:34:11] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-05 03:34:12] day-index: count=160 start=20701 interval=1 -> idx=1 file=001.png
+[2026-09-05 03:34:12] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-05 03:34:15] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G1
+[2026-09-05 03:34:19] painted 001.png
+[2026-09-05 03:34:23] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-05 03:34:23] sleeping 180s, battery 99%
+[2026-09-05 03:34:24] wakealarm=1788579442 since_epoch=1788579262 rtc=/sys/class/rtc/rtc1
+[2026-09-05 03:37:24] resumed after 180s asleep
+[2026-09-05 03:37:24] --- iteration start ---
+[2026-09-05 03:37:24] battery=99%
+[2026-09-05 03:37:35] wifi up after 1s
+[2026-09-05 03:37:35] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt

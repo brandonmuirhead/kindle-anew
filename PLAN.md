@@ -213,7 +213,7 @@ every painting fully visible with a legible caption; `index.json` matches.
 3.3 Static checks on the PC: shellcheck-style review by Fable; scripts must be POSIX `sh` (busybox ash), LF line endings, no bashisms
     (`[[ ]]`, arrays, `local -n`, `$'..'`, `source`). Test the date/index arithmetic under Git Bash's `sh` with `date` stubbed.
 
-### Phase 4 — First run on the device (user + Fable)
+### Phase 4 — First run — **test cycles PASSED 2026-09-05** (five 3-minute cycles: `lab126_gui` stopped, front light 0 via `max77696-bl`, Wi-Fi up within 1 s of every resume, curl fetched pool.txt and the image, eips painted, `rtc1` wakealarm read back as since_epoch+180 and the device resumed after 180-181 s each time, battery 100→99%). Log: `kindle/artframe/firstrun-2026-09-05.log`. Remaining: run on the daily schedule and observe two real 09:00 UTC wakes.
 4.1 Copy `kindle/artframe` → `D:\artframe`, scriptlets → `D:\documents`. Eject.
 4.2 Tap **ArtFrame-TestDisplay**: shows `docs/art/001.png` fetched over Wi-Fi (or a bundled test image) via `eips -f -g`, returns to the
     library after 15 s without sleeping. Confirms Wi-Fi + TLS + image format on the real panel.
@@ -221,7 +221,7 @@ every painting fully visible with a legible caption; `index.json` matches.
     (for the first test set `INTERVAL_MINUTES_TEST=3` in config so we don't wait a day), then set the real schedule.
 4.4 Battery check over 3–4 days via the log (each wake logs `gasgauge-info -c`).
 4.5 To stop or get logs: hold the power button ~40 s until the device reboots into the normal UI, then connect USB.
-    (While the framework is stopped, USB drive mode is not available. *Assumed; confirm.*)
+    (Verified 2026-09-05: USB drive mode still works while the UI is stopped, but connecting mid-cycle raced the loop and left `current.png` at 0 bytes once, so reboot before connecting.)
 
 **Acceptance:** two consecutive scheduled updates observed in the log; battery drop per day noted in README.
 
