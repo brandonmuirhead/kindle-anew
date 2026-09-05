@@ -1,0 +1,1282 @@
+[
+  {
+    "file": "art/001.png",
+    "title": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/002.png",
+    "title": "Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "year": "1503",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg"
+  },
+  {
+    "file": "art/003.png",
+    "title": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": "1665",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg"
+  },
+  {
+    "file": "art/004.png",
+    "title": "The Great Wave off Kanagawa",
+    "artist": "Katsushika Hokusai",
+    "year": "1831",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  {
+    "file": "art/005.png",
+    "title": "The Birth of Venus",
+    "artist": "Sandro Botticelli",
+    "year": "1486",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
+  },
+  {
+    "file": "art/006.png",
+    "title": "The Scream",
+    "artist": "Edvard Munch",
+    "year": "1893",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg"
+  },
+  {
+    "file": "art/007.png",
+    "title": "The Night Watch",
+    "artist": "Rembrandt van Rijn",
+    "year": "1642",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg"
+  },
+  {
+    "file": "art/008.png",
+    "title": "Las Meninas",
+    "artist": "Diego Velazquez",
+    "year": "1656",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg"
+  },
+  {
+    "file": "art/009.png",
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "year": "1908",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_016.jpg"
+  },
+  {
+    "file": "art/010.png",
+    "title": "Liberty Leading the People",
+    "artist": "Eugène Delacroix",
+    "year": "1830",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Eugène_Delacroix_-_Le_28_Juillet._La_Liberté_guidant_le_peuple.jpg"
+  },
+  {
+    "file": "art/011.png",
+    "title": "Impression, Sunrise",
+    "artist": "Claude Monet",
+    "year": "1872",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Claude_Monet,_Impression,_soleil_levant.jpg"
+  },
+  {
+    "file": "art/012.png",
+    "title": "Whistler's Mother",
+    "artist": "James McNeill Whistler",
+    "year": "1871",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg"
+  },
+  {
+    "file": "art/013.png",
+    "title": "The Garden of Earthly Delights",
+    "artist": "Hieronymus Bosch",
+    "year": "1503",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jheronimus_Bosch_023.jpg"
+  },
+  {
+    "file": "art/014.png",
+    "title": "The Arnolfini Portrait",
+    "artist": "Jan van Eyck",
+    "year": "1434",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg"
+  },
+  {
+    "file": "art/015.png",
+    "title": "Wanderer above the Sea of Fog",
+    "artist": "Caspar David Friedrich",
+    "year": "1818",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+  },
+  {
+    "file": "art/016.png",
+    "title": "The Swing",
+    "artist": "Jean-Honoré Fragonard",
+    "year": "1767",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jean-Honoré_Fragonard_018.jpg"
+  },
+  {
+    "file": "art/017.png",
+    "title": "Ophelia",
+    "artist": "John Everett Millais",
+    "year": "1852",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/018.png",
+    "title": "Café Terrace at Night",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg"
+  },
+  {
+    "file": "art/019.png",
+    "title": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_128.jpg"
+  },
+  {
+    "file": "art/020.png",
+    "title": "American Gothic",
+    "artist": "Grant Wood",
+    "year": "1930",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/021.png",
+    "title": "Primavera",
+    "artist": "Sandro Botticelli",
+    "year": "1482",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/022.png",
+    "title": "The School of Athens",
+    "artist": "Raphael",
+    "year": "1511",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Raffael_052.jpg"
+  },
+  {
+    "file": "art/023.png",
+    "title": "The Creation of Adam",
+    "artist": "Michelangelo",
+    "year": "1512",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Michelangelo_-_Creation_of_Adam.jpg"
+  },
+  {
+    "file": "art/024.png",
+    "title": "The Last Supper",
+    "artist": "Leonardo da Vinci",
+    "year": "1498",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_(1452-1519)_-_The_Last_Supper_(1495-1498).jpg"
+  },
+  {
+    "file": "art/025.png",
+    "title": "The Third of May 1808",
+    "artist": "Francisco Goya",
+    "year": "1814",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_in_Google_Earth.jpg"
+  },
+  {
+    "file": "art/026.png",
+    "title": "Saturn Devouring His Son",
+    "artist": "Francisco Goya",
+    "year": "1823",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_y_Lucientes_-_Saturn_Devouring_One_of_his_Children_-_WGA10109.jpg"
+  },
+  {
+    "file": "art/027.png",
+    "title": "The Naked Maja",
+    "artist": "Francisco Goya",
+    "year": "1800",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_y_Lucientes_-_The_Nude_Maja_(La_Maja_Desnuda)_-_WGA10044.jpg"
+  },
+  {
+    "file": "art/028.png",
+    "title": "The Clothed Maja",
+    "artist": "Francisco Goya",
+    "year": "1807",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_y_Lucientes_-_The_Clothed_Maja_(La_Maja_Vestida)_-_WGA10045.jpg"
+  },
+  {
+    "file": "art/029.png",
+    "title": "The Milkmaid",
+    "artist": "Johannes Vermeer",
+    "year": "1658",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jan_Vermeer_van_Delft_021.jpg"
+  },
+  {
+    "file": "art/030.png",
+    "title": "The Art of Painting",
+    "artist": "Johannes Vermeer",
+    "year": "1668",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/031.png",
+    "title": "The Waterseller of Seville",
+    "artist": "Diego Velazquez",
+    "year": "1620",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Diego_Velázquez_-_The_Waterseller_of_Seville_-_WGA24366.jpg"
+  },
+  {
+    "file": "art/032.png",
+    "title": "The Tower of Babel",
+    "artist": "Pieter Bruegel the Elder",
+    "year": "1563",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/033.png",
+    "title": "Hunters in the Snow",
+    "artist": "Pieter Bruegel the Elder",
+    "year": "1565",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/034.png",
+    "title": "The Peasant Wedding",
+    "artist": "Pieter Bruegel the Elder",
+    "year": "1567",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Peasant_Wedding_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/035.png",
+    "title": "Pallas and the Centaur",
+    "artist": "Sandro Botticelli",
+    "year": "1482",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_046.jpg"
+  },
+  {
+    "file": "art/036.png",
+    "title": "Assumption of the Virgin",
+    "artist": "Titian",
+    "year": "1518",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tizian_041.jpg"
+  },
+  {
+    "file": "art/037.png",
+    "title": "La Grande Odalisque",
+    "artist": "Jean-Auguste-Dominique Ingres",
+    "year": "1814",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jean_Auguste_Dominique_Ingres,_La_Grande_Odalisque,_1814.jpg"
+  },
+  {
+    "file": "art/038.png",
+    "title": "Napoleon Crossing the Alps",
+    "artist": "Jacques-Louis David",
+    "year": "1801",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:David_-_Napoleon_crossing_the_Alps_-_Malmaison1.jpg"
+  },
+  {
+    "file": "art/039.png",
+    "title": "The Death of Socrates",
+    "artist": "Jacques-Louis David",
+    "year": "1787",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:David_-_The_Death_of_Socrates.jpg"
+  },
+  {
+    "file": "art/040.png",
+    "title": "The Valpinçon Bather",
+    "artist": "Jean-Auguste-Dominique Ingres",
+    "year": "1808",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jean-Auguste-Dominique_Ingres_-_La_Baigneuse_Valpinçon.jpg"
+  },
+  {
+    "file": "art/041.png",
+    "title": "The Raft of the Medusa",
+    "artist": "Théodore Géricault",
+    "year": "1819",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Théodore_Géricault_-_Le_Radeau_de_la_Méduse.jpg"
+  },
+  {
+    "file": "art/042.png",
+    "title": "The Ancient of Days",
+    "artist": "William Blake",
+    "year": "1794",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:William_Blake_006.jpg"
+  },
+  {
+    "file": "art/043.png",
+    "title": "The Light of the World",
+    "artist": "William Holman Hunt",
+    "year": "1854",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Light_of_the_World_Hunt.jpg"
+  },
+  {
+    "file": "art/044.png",
+    "title": "Proserpine",
+    "artist": "Dante Gabriel Rossetti",
+    "year": "1874",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dante_Gabriel_Rossetti_-_Proserpine_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/045.png",
+    "title": "The Lady of Shalott",
+    "artist": "John William Waterhouse",
+    "year": "1888",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/046.png",
+    "title": "Midsummer Dance",
+    "artist": "Anders Zorn",
+    "year": "1897",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Anders_Zorn_-_Midsummer_Dance_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/047.png",
+    "title": "Le Déjeuner sur l'herbe",
+    "artist": "Édouard Manet",
+    "year": "1863",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Édouard_Manet_-_Le_Déjeuner_sur_l'herbe.jpg"
+  },
+  {
+    "file": "art/048.png",
+    "title": "Olympia",
+    "artist": "Édouard Manet",
+    "year": "1863",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Edouard_Manet_-_Olympia_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/049.png",
+    "title": "A Bar at the Folies-Bergère",
+    "artist": "Édouard Manet",
+    "year": "1882",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Edouard_Manet,_A_Bar_at_the_Folies-Bergère.jpg"
+  },
+  {
+    "file": "art/050.png",
+    "title": "The Dance Class",
+    "artist": "Edgar Degas",
+    "year": "1874",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Edgar_Degas_The_Dance_Class.jpg"
+  },
+  {
+    "file": "art/051.png",
+    "title": "L'Absinthe",
+    "artist": "Edgar Degas",
+    "year": "1876",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Edgar_Germain_Hilaire_Degas_038.jpg"
+  },
+  {
+    "file": "art/052.png",
+    "title": "The Basket of Apples",
+    "artist": "Paul Cézanne",
+    "year": "1895",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Paul_Cézanne_105.jpg"
+  },
+  {
+    "file": "art/053.png",
+    "title": "The Card Players",
+    "artist": "Paul Cézanne",
+    "year": "1895",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Les_Joueurs_de_cartes,_par_Paul_Cézanne.jpg"
+  },
+  {
+    "file": "art/054.png",
+    "title": "Where Do We Come From? What Are We? Where Are We Going?",
+    "artist": "Paul Gauguin",
+    "year": "1897",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin_137.jpg"
+  },
+  {
+    "file": "art/055.png",
+    "title": "The Dream",
+    "artist": "Henri Rousseau",
+    "year": "1910",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Henri_Rousseau_-_Le_Rêve_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/056.png",
+    "title": "The Sleeping Gypsy",
+    "artist": "Henri Rousseau",
+    "year": "1897",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Henri_Rousseau_002.jpg"
+  },
+  {
+    "file": "art/057.png",
+    "title": "Portrait of Adele Bloch-Bauer I",
+    "artist": "Gustav Klimt",
+    "year": "1907",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_046.jpg"
+  },
+  {
+    "file": "art/058.png",
+    "title": "The Tree of Life",
+    "artist": "Gustav Klimt",
+    "year": "1909",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustav_Klimt_022.jpg"
+  },
+  {
+    "file": "art/059.png",
+    "title": "Composition II in Red, Blue, and Yellow",
+    "artist": "Piet Mondrian",
+    "year": "1930",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg"
+  },
+  {
+    "file": "art/060.png",
+    "title": "Wheatfield with Crows",
+    "artist": "Vincent van Gogh",
+    "year": "1890",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/061.png",
+    "title": "Bedroom in Arles",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Van_Gogh's_Bedroom_in_Arles_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/062.png",
+    "title": "The Potato Eaters",
+    "artist": "Vincent van Gogh",
+    "year": "1885",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_potato_eaters_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/063.png",
+    "title": "Almond Blossoms",
+    "artist": "Vincent van Gogh",
+    "year": "1890",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/064.png",
+    "title": "Irises",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Irises_(1889).jpg"
+  },
+  {
+    "file": "art/065.png",
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "year": "1906",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/066.png",
+    "title": "Woman with a Parasol",
+    "artist": "Claude Monet",
+    "year": "1875",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/067.png",
+    "title": "Paris Street; Rainy Day",
+    "artist": "Gustave Caillebotte",
+    "year": "1877",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustave_Caillebotte_-_Paris_Street;_Rainy_Day_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/068.png",
+    "title": "Fine Wind, Clear Morning (Red Fuji)",
+    "artist": "Katsushika Hokusai",
+    "year": "1831",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Katsushika_Hokusai_-_Fine_Wind,_Clear_Morning_(Gaifū_kaisei)_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/069.png",
+    "title": "Sudden Shower over Shin-Ōhashi Bridge and Atake",
+    "artist": "Utagawa Hiroshige",
+    "year": "1857",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hiroshige,_Sudden_shower_over_Shin-Ōhashi_bridge_and_Atake,_1857.jpg"
+  },
+  {
+    "file": "art/070.png",
+    "title": "Venus and Mars",
+    "artist": "Sandro Botticelli",
+    "year": "1483",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_085.jpg"
+  },
+  {
+    "file": "art/071.png",
+    "title": "Bacchus and Ariadne",
+    "artist": "Titian",
+    "year": "1523",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/072.png",
+    "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+    "artist": "Rembrandt",
+    "year": "1632",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz._van_Rijn_006.jpg"
+  },
+  {
+    "file": "art/073.png",
+    "title": "Self-Portrait",
+    "artist": "Rembrandt",
+    "year": "1660",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/074.png",
+    "title": "View of Delft",
+    "artist": "Johannes Vermeer",
+    "year": "1661",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vermeer-view-of-delft.jpg"
+  },
+  {
+    "file": "art/075.png",
+    "title": "The Geographer",
+    "artist": "Johannes Vermeer",
+    "year": "1669",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_The_Geographer_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/076.png",
+    "title": "Adoration of the Magi",
+    "artist": "Sandro Botticelli",
+    "year": "1475",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Botticelli_-_Adoration_of_the_Magi_(Zanobi_Altar)_-_Uffizi.jpg"
+  },
+  {
+    "file": "art/077.png",
+    "title": "Vitruvian Man",
+    "artist": "Leonardo da Vinci",
+    "year": "1490",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg"
+  },
+  {
+    "file": "art/078.png",
+    "title": "The Virgin and Child with St Anne",
+    "artist": "Leonardo da Vinci",
+    "year": "1510",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Virgin_and_Child_with_St_Anne_C2RMF_retouched.jpg"
+  },
+  {
+    "file": "art/079.png",
+    "title": "Lady with an Ermine",
+    "artist": "Leonardo da Vinci",
+    "year": "1490",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/080.png",
+    "title": "Madonna of the Magnificat",
+    "artist": "Sandro Botticelli",
+    "year": "1481",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_Madonna_of_the_Magnificat_(Madonna_del_Magnificat)_-_WGA2715.jpg"
+  },
+  {
+    "file": "art/081.png",
+    "title": "The Gulf Stream",
+    "artist": "Winslow Homer",
+    "year": "1899",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Gulf_Stream_(1899).jpg"
+  },
+  {
+    "file": "art/082.png",
+    "title": "Nocturne in Black and Gold: The Falling Rocket",
+    "artist": "James McNeill Whistler",
+    "year": "1875",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Whistler-Nocturne_in_black_and_gold.jpg"
+  },
+  {
+    "file": "art/083.png",
+    "title": "The Angelus",
+    "artist": "Jean-François Millet",
+    "year": "1859",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jean-François_Millet_-_The_Angelus_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/084.png",
+    "title": "The Gleaners",
+    "artist": "Jean-François Millet",
+    "year": "1857",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jean-François_Millet_-_Gleaners_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/085.png",
+    "title": "A Burial at Ornans",
+    "artist": "Gustave Courbet",
+    "year": "1850",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_A_Burial_at_Ornans_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/086.png",
+    "title": "The Stone Breakers",
+    "artist": "Gustave Courbet",
+    "year": "1849",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_018.jpg"
+  },
+  {
+    "file": "art/087.png",
+    "title": "Woman Holding a Balance",
+    "artist": "Johannes Vermeer",
+    "year": "1664",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Woman_Holding_a_Balance_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/088.png",
+    "title": "Venus of Urbino",
+    "artist": "Titian",
+    "year": "1538",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/089.png",
+    "title": "The Calumny of Apelles",
+    "artist": "Sandro Botticelli",
+    "year": "1495",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_021.jpg"
+  },
+  {
+    "file": "art/090.png",
+    "title": "Double Portrait of the Duke and Duchess of Urbino",
+    "artist": "Piero della Francesca",
+    "year": "1474",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Piero_della_Francesca_-_Portraits_of_the_Duke_and_Duchess_of_Urbino,_Federico_da_Montefeltro_and_Battista_Sforza_-_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/091.png",
+    "title": "Judith Beheading Holofernes",
+    "artist": "Caravaggio",
+    "year": "1599",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Caravaggio_Judith_Beheading_Holofernes.jpg"
+  },
+  {
+    "file": "art/092.png",
+    "title": "The Calling of Saint Matthew",
+    "artist": "Caravaggio",
+    "year": "1600",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Caravaggio,_Michelangelo_Merisi_da_-_The_Calling_of_Saint_Matthew_-_1599-1600_(hi_res).jpg"
+  },
+  {
+    "file": "art/093.png",
+    "title": "Portrait of a Young Man",
+    "artist": "Sandro Botticelli",
+    "year": "1483",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_Portrait_of_a_Young_Man.jpg"
+  },
+  {
+    "file": "art/094.png",
+    "title": "The Cheat with the Ace of Diamonds",
+    "artist": "Georges de La Tour",
+    "year": "1635",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Georges_de_La_Tour_014.jpg"
+  },
+  {
+    "file": "art/095.png",
+    "title": "Woman in Blue Reading a Letter",
+    "artist": "Johannes Vermeer",
+    "year": "1663",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Woman_in_Blue_Reading_a_Letter_-_WGA24657.jpg"
+  },
+  {
+    "file": "art/096.png",
+    "title": "The Burial of the Count of Orgaz",
+    "artist": "El Greco",
+    "year": "1588",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:El_Greco_-_The_Burial_of_the_Count_of_Orgaz_-_WGA10486.jpg"
+  },
+  {
+    "file": "art/097.png",
+    "title": "Charles I at the Hunt",
+    "artist": "Anthony van Dyck",
+    "year": "1635",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Anthonis_van_Dyck_018.jpg"
+  },
+  {
+    "file": "art/098.png",
+    "title": "The Ghent Altarpiece",
+    "artist": "Jan van Eyck",
+    "year": "1432",
+    "source": "commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ghent_Altarpiece_Google_Art_Project.jpg"
+  },
+  {
+    "file": "art/099.png",
+    "title": "Still Life—Strawberries, Nuts, &c.",
+    "artist": "Raphaelle Peale",
+    "year": "1822",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/120154"
+  },
+  {
+    "file": "art/100.png",
+    "title": "Judith",
+    "artist": "Jan Sanders van Hemessen",
+    "year": "c. 1540",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/4575"
+  },
+  {
+    "file": "art/101.png",
+    "title": "At the Moulin Rouge",
+    "artist": "Henri de Toulouse-Lautrec",
+    "year": "1892–95",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/61128"
+  },
+  {
+    "file": "art/102.png",
+    "title": "A Sunday on La Grande Jatte — 1884",
+    "artist": "Georges Seurat",
+    "year": "1884–86, border added 1888–89",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/27992"
+  },
+  {
+    "file": "art/103.png",
+    "title": "Salome with the Head of Saint John the Baptist",
+    "artist": "Guido Reni",
+    "year": "c. 1639–42",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/11434"
+  },
+  {
+    "file": "art/104.png",
+    "title": "View of Cotopaxi",
+    "artist": "Frederic Edwin Church",
+    "year": "1857",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/76571"
+  },
+  {
+    "file": "art/105.png",
+    "title": "Acrobats at the Cirque Fernando (Francisca and Angelina Wartenberg)",
+    "artist": "Pierre-Auguste Renoir",
+    "year": "1879",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/81558"
+  },
+  {
+    "file": "art/106.png",
+    "title": "Still Life with Game Fowl",
+    "artist": "Juan Sánchez Cotán",
+    "year": "c. 1600–3",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/84709"
+  },
+  {
+    "file": "art/107.png",
+    "title": "Royal Horse Inspection",
+    "artist": "'Aliquli Jabbadar",
+    "year": "Safavid dynasty (1501–1722), late 17th century",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/76869"
+  },
+  {
+    "file": "art/108.png",
+    "title": "Mountain Brook",
+    "artist": "Albert Bierstadt",
+    "year": "1863",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/146701"
+  },
+  {
+    "file": "art/109.png",
+    "title": "Interrupted Reading",
+    "artist": "Jean Baptiste Camille Corot",
+    "year": "c. 1870",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/81512"
+  },
+  {
+    "file": "art/110.png",
+    "title": "Arrival of the Normandy Train, Gare Saint-Lazare",
+    "artist": "Claude Monet",
+    "year": "1877",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16571"
+  },
+  {
+    "file": "art/111.png",
+    "title": "The Millinery Shop",
+    "artist": "Hilaire Germain Edgar Degas",
+    "year": "1879-86",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/14572"
+  },
+  {
+    "file": "art/112.png",
+    "title": "Fish (Still Life)",
+    "artist": "Édouard Manet",
+    "year": "1864",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/44892"
+  },
+  {
+    "file": "art/113.png",
+    "title": "The Captive Slave (Ira Aldridge)",
+    "artist": "John Philip Simpson",
+    "year": "1827",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/193664"
+  },
+  {
+    "file": "art/114.png",
+    "title": "Richard Bill",
+    "artist": "John Smibert",
+    "year": "1733",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/49702"
+  },
+  {
+    "file": "art/115.png",
+    "title": "Woman before an Aquarium",
+    "artist": "Henri Matisse",
+    "year": "1921–23",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/27984"
+  },
+  {
+    "file": "art/116.png",
+    "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+    "artist": "Piet Mondrian",
+    "year": "1921",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/109819"
+  },
+  {
+    "file": "art/117.png",
+    "title": "The Fountain, Villa Torlonia, Frascati, Italy",
+    "artist": "John Singer Sargent",
+    "year": "1907",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/69780"
+  },
+  {
+    "file": "art/118.png",
+    "title": "The Girl by the Window",
+    "artist": "Edvard Munch",
+    "year": "1893",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/154235"
+  },
+  {
+    "file": "art/119.png",
+    "title": "Virgin and Child with the Young Saint John the Baptist",
+    "artist": "Antonio da Correggio",
+    "year": "c. 1515",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/23972"
+  },
+  {
+    "file": "art/120.png",
+    "title": "Mural Fragment Depicting a Maguey Bloodletting Ritual",
+    "artist": "Teotihuacan",
+    "year": "500–600 CE",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/14968"
+  },
+  {
+    "file": "art/121.png",
+    "title": "Still Life with Dead Game, Fruits, and Vegetables in a Market",
+    "artist": "Frans Snyders",
+    "year": "1614",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/62042"
+  },
+  {
+    "file": "art/122.png",
+    "title": "The Beheading of Saint John the Baptist",
+    "artist": "Giovanni di Paolo",
+    "year": "1455–60",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16169"
+  },
+  {
+    "file": "art/123.png",
+    "title": "The Bedroom",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/28560"
+  },
+  {
+    "file": "art/124.png",
+    "title": "Distant View of Niagara Falls",
+    "artist": "Thomas Cole",
+    "year": "1830",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/90048"
+  },
+  {
+    "file": "art/125.png",
+    "title": "Still Life with Geranium",
+    "artist": "Henri Matisse",
+    "year": "1906",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/87045"
+  },
+  {
+    "file": "art/126.png",
+    "title": "The Home of the Heron",
+    "artist": "George Inness",
+    "year": "1893",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/64724"
+  },
+  {
+    "file": "art/127.png",
+    "title": "At Mouquin's",
+    "artist": "William James Glackens",
+    "year": "1905",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/15401"
+  },
+  {
+    "file": "art/128.png",
+    "title": "Woman Reading",
+    "artist": "Édouard Manet",
+    "year": "1880–82",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/14591"
+  },
+  {
+    "file": "art/129.png",
+    "title": "Stacks of Wheat (End of Summer)",
+    "artist": "Claude Monet",
+    "year": "1890–91",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/64818"
+  },
+  {
+    "file": "art/130.png",
+    "title": "The Young Emperor Akbar Arrests the Insolent Shah Abu’l-Maali, Page from a Manuscript of the Akbarnama",
+    "artist": "Basawan",
+    "year": "Mughal dynasty (1526-1857), c. 1590-1595",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/76816"
+  },
+  {
+    "file": "art/131.png",
+    "title": "Portrait of Jean Gros (recto); Coat of Arms of Jean Gros (verso)",
+    "artist": "Rogier van der Weyden",
+    "year": "1460–64",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16298"
+  },
+  {
+    "file": "art/132.png",
+    "title": "Landscape: Window Overlooking the Woods",
+    "artist": "Édouard Jean Vuillard",
+    "year": "1899",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/109926"
+  },
+  {
+    "file": "art/133.png",
+    "title": "Isabella Wolff",
+    "artist": "Sir Thomas Lawrence",
+    "year": "1803–15",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/4773"
+  },
+  {
+    "file": "art/134.png",
+    "title": "The Herring Net",
+    "artist": "Winslow Homer",
+    "year": "1885",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/25865"
+  },
+  {
+    "file": "art/135.png",
+    "title": "Woman at Her Toilette",
+    "artist": "Berthe Morisot",
+    "year": "1875–80",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/11723"
+  },
+  {
+    "file": "art/136.png",
+    "title": "Arlésiennes (Mistral)",
+    "artist": "Paul Gauguin",
+    "year": "1888",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/19339"
+  },
+  {
+    "file": "art/137.png",
+    "title": "Autumn Maples with Poem Slips",
+    "artist": "Tosa Mitsuoki",
+    "year": "c. 1675",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/127644"
+  },
+  {
+    "file": "art/138.png",
+    "title": "Gian Lodovico Madruzzo",
+    "artist": "Giovanni Battista Moroni",
+    "year": "1551–52",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/4081"
+  },
+  {
+    "file": "art/139.png",
+    "title": "Landscape with Saint John on Patmos",
+    "artist": "Nicolas Poussin",
+    "year": "1640",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/5848"
+  },
+  {
+    "file": "art/140.png",
+    "title": "Saint George and the Dragon",
+    "artist": "Bernat Martorell",
+    "year": "1434–35",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/15468"
+  },
+  {
+    "file": "art/141.png",
+    "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+    "artist": "Peter Paul Rubens",
+    "year": "c. 1615",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/27310"
+  },
+  {
+    "file": "art/142.png",
+    "title": "The Combat of the Giaour and Hassan",
+    "artist": "Eugène Delacroix",
+    "year": "1826",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/110663"
+  },
+  {
+    "file": "art/143.png",
+    "title": "Bar-room Scene",
+    "artist": "William Sidney Mount",
+    "year": "1835",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/30709"
+  },
+  {
+    "file": "art/144.png",
+    "title": "Friar Pedro Shoots El Maragato as His Horse Runs Off",
+    "artist": "Francisco José de Goya y Lucientes",
+    "year": "c. 1806",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16362"
+  },
+  {
+    "file": "art/145.png",
+    "title": "The Battle between the Gods and the Giants",
+    "artist": "Joachim Antonisz. Wtewael",
+    "year": "c. 1608",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/105466"
+  },
+  {
+    "file": "art/146.png",
+    "title": "Boy on a Ram",
+    "artist": "Francisco José de Goya y Lucientes",
+    "year": "1786–87",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/111559"
+  },
+  {
+    "file": "art/147.png",
+    "title": "The Bay of Marseille, Seen from L'Estaque",
+    "artist": "Paul Cezanne",
+    "year": "c. 1885",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16487"
+  },
+  {
+    "file": "art/148.png",
+    "title": "Cupid Chastised",
+    "artist": "Bartolomeo Manfredi",
+    "year": "1613",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/59847"
+  },
+  {
+    "file": "art/149.png",
+    "title": "Early Morning, Tarpon Springs",
+    "artist": "George Inness",
+    "year": "1892",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/64729"
+  },
+  {
+    "file": "art/150.png",
+    "title": "The Annunciation",
+    "artist": "Jean Hey, (the Master of Moulins)",
+    "year": "1490–95",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/16327"
+  },
+  {
+    "file": "art/151.png",
+    "title": "Love of Winter",
+    "artist": "George Wesley Bellows",
+    "year": "1914",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/109780"
+  },
+  {
+    "file": "art/152.png",
+    "title": "Husking Bee, Island of Nantucket",
+    "artist": "Eastman Johnson",
+    "year": "1876",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/81564"
+  },
+  {
+    "file": "art/153.png",
+    "title": "The Child's Bath",
+    "artist": "Mary Cassatt",
+    "year": "1893",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/111442"
+  },
+  {
+    "file": "art/154.png",
+    "title": "Madame Cezanne in a Yellow Chair",
+    "artist": "Paul Cezanne",
+    "year": "1888–90",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/62371"
+  },
+  {
+    "file": "art/155.png",
+    "title": "Mrs. Daniel Hubbard (Mary Greene)",
+    "artist": "John Singleton Copley",
+    "year": "c. 1764",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/59787"
+  },
+  {
+    "file": "art/156.png",
+    "title": "Cabin in the Cotton",
+    "artist": "Horace Pippin",
+    "year": "c. 1931–37",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/111617"
+  },
+  {
+    "file": "art/157.png",
+    "title": "Pillars of the Country",
+    "artist": "Yao Shou",
+    "year": "Ming dynasty (1368–1644), 1494",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/79507"
+  },
+  {
+    "file": "art/158.png",
+    "title": "Lady Sarah Bunbury Sacrificing to the Graces",
+    "artist": "Sir Joshua Reynolds",
+    "year": "1763–65",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/4788"
+  },
+  {
+    "file": "art/159.png",
+    "title": "Icebound",
+    "artist": "John Henry Twachtman",
+    "year": "c. 1889",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/72801"
+  },
+  {
+    "file": "art/160.png",
+    "title": "Maize and Cockscombs",
+    "artist": "Unknown",
+    "year": "mid 17th century",
+    "source": "artic",
+    "source_url": "https://www.artic.edu/artworks/11272"
+  }
+]
