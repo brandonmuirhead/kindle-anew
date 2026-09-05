@@ -1,0 +1,109 @@
+# Curated, hand-verified Wikimedia Commons File: titles of famous public-domain
+# paintings, most-iconic first (this is the display order for the Commons
+# portion of the pool -- see PLAN.md section 6, "Selection and order").
+#
+# Format: File title | Title | Artist | Year
+# (the "File:" namespace prefix is added by sources/commons.py)
+#
+# Every line below was validated against the imageinfo API (batches of 50,
+# see generator/build_pool.py) and confirmed to have LicenseShortName
+# containing "Public domain". Lines starting with # are ignored.
+
+Van Gogh - Starry Night - Google Art Project.jpg | The Starry Night | Vincent van Gogh | 1889
+Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg | Mona Lisa | Leonardo da Vinci | 1503
+1665 Girl with a Pearl Earring.jpg | Girl with a Pearl Earring | Johannes Vermeer | 1665
+Great Wave off Kanagawa2.jpg | The Great Wave off Kanagawa | Katsushika Hokusai | 1831
+Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg | The Birth of Venus | Sandro Botticelli | 1486
+Edvard Munch, 1893, The Scream, oil, tempera and pastel on cardboard, 91 x 73 cm, National Gallery of Norway.jpg | The Scream | Edvard Munch | 1893
+The Nightwatch by Rembrandt - Rijksmuseum.jpg | The Night Watch | Rembrandt van Rijn | 1642
+Las Meninas 01.jpg | Las Meninas | Diego Velazquez | 1656
+Gustav Klimt 016.jpg | The Kiss | Gustav Klimt | 1908
+Eugène Delacroix - Le 28 Juillet. La Liberté guidant le peuple.jpg | Liberty Leading the People | Eugène Delacroix | 1830
+Claude Monet, Impression, soleil levant.jpg | Impression, Sunrise | Claude Monet | 1872
+Whistlers Mother high res.jpg | Whistler's Mother | James McNeill Whistler | 1871
+Jheronimus Bosch 023.jpg | The Garden of Earthly Delights | Hieronymus Bosch | 1503
+Van Eyck - Arnolfini Portrait.jpg | The Arnolfini Portrait | Jan van Eyck | 1434
+Caspar David Friedrich - Wanderer above the sea of fog.jpg | Wanderer above the Sea of Fog | Caspar David Friedrich | 1818
+Jean-Honoré Fragonard 018.jpg | The Swing | Jean-Honoré Fragonard | 1767
+John Everett Millais - Ophelia - Google Art Project.jpg | Ophelia | John Everett Millais | 1852
+Vincent Willem van Gogh 127.jpg | Café Terrace at Night | Vincent van Gogh | 1888
+Vincent Willem van Gogh 128.jpg | Sunflowers | Vincent van Gogh | 1889
+Grant Wood - American Gothic - Google Art Project.jpg | American Gothic | Grant Wood | 1930
+Sandro Botticelli - La Primavera - Google Art Project.jpg | Primavera | Sandro Botticelli | 1482
+Raffael 052.jpg | The School of Athens | Raphael | 1511
+Michelangelo - Creation of Adam.jpg | The Creation of Adam | Michelangelo | 1512
+Leonardo da Vinci (1452-1519) - The Last Supper (1495-1498).jpg | The Last Supper | Leonardo da Vinci | 1498
+El Tres de Mayo, by Francisco de Goya, from Prado in Google Earth.jpg | The Third of May 1808 | Francisco Goya | 1814
+Francisco de Goya y Lucientes - Saturn Devouring One of his Children - WGA10109.jpg | Saturn Devouring His Son | Francisco Goya | 1823
+Francisco de Goya y Lucientes - The Nude Maja (La Maja Desnuda) - WGA10044.jpg | The Naked Maja | Francisco Goya | 1800
+Francisco de Goya y Lucientes - The Clothed Maja (La Maja Vestida) - WGA10045.jpg | The Clothed Maja | Francisco Goya | 1807
+Jan Vermeer van Delft 021.jpg | The Milkmaid | Johannes Vermeer | 1658
+Jan Vermeer - The Art of Painting - Google Art Project.jpg | The Art of Painting | Johannes Vermeer | 1668
+Diego Velázquez - The Waterseller of Seville - WGA24366.jpg | The Waterseller of Seville | Diego Velazquez | 1620
+Pieter Bruegel the Elder - The Tower of Babel (Vienna) - Google Art Project.jpg | The Tower of Babel | Pieter Bruegel the Elder | 1563
+Pieter Bruegel the Elder - Hunters in the Snow (Winter) - Google Art Project.jpg | Hunters in the Snow | Pieter Bruegel the Elder | 1565
+Pieter Bruegel the Elder - Peasant Wedding - Google Art Project.jpg | The Peasant Wedding | Pieter Bruegel the Elder | 1567
+Sandro Botticelli 046.jpg | Pallas and the Centaur | Sandro Botticelli | 1482
+Tizian 041.jpg | Assumption of the Virgin | Titian | 1518
+Jean Auguste Dominique Ingres, La Grande Odalisque, 1814.jpg | La Grande Odalisque | Jean-Auguste-Dominique Ingres | 1814
+David - Napoleon crossing the Alps - Malmaison1.jpg | Napoleon Crossing the Alps | Jacques-Louis David | 1801
+David - The Death of Socrates.jpg | The Death of Socrates | Jacques-Louis David | 1787
+Jean-Auguste-Dominique Ingres - La Baigneuse Valpinçon.jpg | The Valpinçon Bather | Jean-Auguste-Dominique Ingres | 1808
+Théodore Géricault - Le Radeau de la Méduse.jpg | The Raft of the Medusa | Théodore Géricault | 1819
+William Blake 006.jpg | The Ancient of Days | William Blake | 1794
+Light of the World Hunt.jpg | The Light of the World | William Holman Hunt | 1854
+Dante Gabriel Rossetti - Proserpine - Google Art Project.jpg | Proserpine | Dante Gabriel Rossetti | 1874
+John William Waterhouse - The Lady of Shalott - Google Art Project.jpg | The Lady of Shalott | John William Waterhouse | 1888
+Anders Zorn - Midsummer Dance - Google Art Project.jpg | Midsummer Dance | Anders Zorn | 1897
+Édouard Manet - Le Déjeuner sur l'herbe.jpg | Le Déjeuner sur l'herbe | Édouard Manet | 1863
+Edouard Manet - Olympia - Google Art Project.jpg | Olympia | Édouard Manet | 1863
+Edouard Manet, A Bar at the Folies-Bergère.jpg | A Bar at the Folies-Bergère | Édouard Manet | 1882
+Edgar Degas The Dance Class.jpg | The Dance Class | Edgar Degas | 1874
+Edgar Germain Hilaire Degas 038.jpg | L'Absinthe | Edgar Degas | 1876
+Paul Cézanne 105.jpg | The Basket of Apples | Paul Cézanne | 1895
+Les Joueurs de cartes, par Paul Cézanne.jpg | The Card Players | Paul Cézanne | 1895
+Paul Gauguin 137.jpg | Where Do We Come From? What Are We? Where Are We Going? | Paul Gauguin | 1897
+Henri Rousseau - Le Rêve - Google Art Project.jpg | The Dream | Henri Rousseau | 1910
+Henri Rousseau 002.jpg | The Sleeping Gypsy | Henri Rousseau | 1897
+Gustav Klimt 046.jpg | Portrait of Adele Bloch-Bauer I | Gustav Klimt | 1907
+Gustav Klimt 022.jpg | The Tree of Life | Gustav Klimt | 1909
+Piet Mondriaan, 1930 - Mondrian Composition II in Red, Blue, and Yellow.jpg | Composition II in Red, Blue, and Yellow | Piet Mondrian | 1930
+Vincent van Gogh - Wheatfield with crows - Google Art Project.jpg | Wheatfield with Crows | Vincent van Gogh | 1890
+Vincent van Gogh - Van Gogh's Bedroom in Arles - Google Art Project.jpg | Bedroom in Arles | Vincent van Gogh | 1888
+Vincent van Gogh - The potato eaters - Google Art Project.jpg | The Potato Eaters | Vincent van Gogh | 1885
+Vincent van Gogh - Almond blossom - Google Art Project.jpg | Almond Blossoms | Vincent van Gogh | 1890
+Vincent van Gogh - Irises (1889).jpg | Irises | Vincent van Gogh | 1889
+Claude Monet - Water Lilies - Google Art Project.jpg | Water Lilies | Claude Monet | 1906
+Claude Monet - Woman with a Parasol - Madame Monet and Her Son - Google Art Project.jpg | Woman with a Parasol | Claude Monet | 1875
+Gustave Caillebotte - Paris Street; Rainy Day - Google Art Project.jpg | Paris Street; Rainy Day | Gustave Caillebotte | 1877
+Katsushika Hokusai - Fine Wind, Clear Morning (Gaifū kaisei) - Google Art Project.jpg | Fine Wind, Clear Morning (Red Fuji) | Katsushika Hokusai | 1831
+Hiroshige, Sudden shower over Shin-Ōhashi bridge and Atake, 1857.jpg | Sudden Shower over Shin-Ōhashi Bridge and Atake | Utagawa Hiroshige | 1857
+Sandro Botticelli 085.jpg | Venus and Mars | Sandro Botticelli | 1483
+Titian - Bacchus and Ariadne - Google Art Project.jpg | Bacchus and Ariadne | Titian | 1523
+Rembrandt Harmensz. van Rijn 006.jpg | The Anatomy Lesson of Dr. Nicolaes Tulp | Rembrandt | 1632
+Rembrandt van Rijn - Self-Portrait - Google Art Project.jpg | Self-Portrait | Rembrandt | 1660
+Vermeer-view-of-delft.jpg | View of Delft | Johannes Vermeer | 1661
+Johannes Vermeer - The Geographer - Google Art Project.jpg | The Geographer | Johannes Vermeer | 1669
+Botticelli - Adoration of the Magi (Zanobi Altar) - Uffizi.jpg | Adoration of the Magi | Sandro Botticelli | 1475
+Da Vinci Vitruve Luc Viatour.jpg | Vitruvian Man | Leonardo da Vinci | 1490
+Leonardo da Vinci - Virgin and Child with St Anne C2RMF retouched.jpg | The Virgin and Child with St Anne | Leonardo da Vinci | 1510
+Lady with an Ermine - Leonardo da Vinci - Google Art Project.jpg | Lady with an Ermine | Leonardo da Vinci | 1490
+Sandro Botticelli - Madonna of the Magnificat (Madonna del Magnificat) - WGA2715.jpg | Madonna of the Magnificat | Sandro Botticelli | 1481
+Winslow Homer - The Gulf Stream (1899).jpg | The Gulf Stream | Winslow Homer | 1899
+Whistler-Nocturne in black and gold.jpg | Nocturne in Black and Gold: The Falling Rocket | James McNeill Whistler | 1875
+Jean-François Millet - The Angelus - Google Art Project.jpg | The Angelus | Jean-François Millet | 1859
+Jean-François Millet - Gleaners - Google Art Project.jpg | The Gleaners | Jean-François Millet | 1857
+Gustave Courbet - A Burial at Ornans - Google Art Project.jpg | A Burial at Ornans | Gustave Courbet | 1850
+Gustave Courbet 018.jpg | The Stone Breakers | Gustave Courbet | 1849
+Johannes Vermeer - Woman Holding a Balance - Google Art Project.jpg | Woman Holding a Balance | Johannes Vermeer | 1664
+Tiziano - Venere di Urbino - Google Art Project.jpg | Venus of Urbino | Titian | 1538
+Sandro Botticelli 021.jpg | The Calumny of Apelles | Sandro Botticelli | 1495
+Piero della Francesca - Portraits of the Duke and Duchess of Urbino, Federico da Montefeltro and Battista Sforza - Google Art Project.jpg | Double Portrait of the Duke and Duchess of Urbino | Piero della Francesca | 1474
+Caravaggio Judith Beheading Holofernes.jpg | Judith Beheading Holofernes | Caravaggio | 1599
+Caravaggio, Michelangelo Merisi da - The Calling of Saint Matthew - 1599-1600 (hi res).jpg | The Calling of Saint Matthew | Caravaggio | 1600
+Sandro Botticelli - Portrait of a Young Man.jpg | Portrait of a Young Man | Sandro Botticelli | 1483
+Georges de La Tour 014.jpg | The Cheat with the Ace of Diamonds | Georges de La Tour | 1635
+Johannes Vermeer - Woman in Blue Reading a Letter - WGA24657.jpg | Woman in Blue Reading a Letter | Johannes Vermeer | 1663
+El Greco - The Burial of the Count of Orgaz - WGA10486.jpg | The Burial of the Count of Orgaz | El Greco | 1588
+Anthonis van Dyck 018.jpg | Charles I at the Hunt | Anthony van Dyck | 1635
+Ghent Altarpiece Google Art Project.jpg | The Ghent Altarpiece | Jan van Eyck | 1432

@@ -1,0 +1,8 @@
+generator/cache/
+__pycache__/
+generator/preview.png
+generator/*.log
+kindle/artframe/diag-*.txt
+kindle/artframe/diag.txt
+kindle/artframe/xh
+vendor/
