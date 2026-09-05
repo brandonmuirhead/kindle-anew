@@ -185,7 +185,7 @@ Steps kept for reference:
 
 **Acceptance:** `diag.txt` exists and shows `uid=0`, an `rtc1` with a writable `wakealarm`, `eips -i` reporting 1072×1448, and `xh --version` succeeding from `/var/tmp`.
 
-### Phase 1 — Generator (Sonnet; testable immediately, no Kindle needed)
+### Phase 1 — Generator — **DONE 2026-09-04** (Sonnet built it; Fable reviewed, moved sharpening after the resize, made the gather stop once the pool is full, raised POOL_SIZE to 160; full build: 98/98 Commons titles resolved, 62 AIC works, 160 images, 52.5 MB, all validated)
 1.1 Scaffold `generator/` per §3; `requirements.txt`; `config.py` with the constants in §6.
 1.2 `sources/*.py`: each exposes `candidates() -> list[Artwork]` where `Artwork = {id, title, artist, year, source, source_url, image_url}`.
     Commons: read `commons_curated.txt`, batch titles 50 at a time into the imageinfo API, **skip and log titles the API reports missing**
@@ -198,7 +198,7 @@ Steps kept for reference:
 **Acceptance:** `python build_pool.py --limit 12` produces 12 PNGs that are mode `L`, exactly 1072×1448, contain only the 16 palette values,
 every painting fully visible with a legible caption; `index.json` matches.
 
-### Phase 2 — Hosting (Sonnet, with user approval for the public repo)
+### Phase 2 — Hosting — **DONE 2026-09-04** (repo github.com/brandonmuirhead/kindle-anew, Pages from main:/docs, `https://brandonmuirhead.github.io/kindle-anew/pool.txt` and `art/001.png` verified 200; `.gitattributes` forces LF; `xh`, the diagnostics dump and `vendor/` are gitignored)
 2.1 `git init`, `.gitignore` (`generator/cache/`, `__pycache__`), commit.
 2.2 `gh repo create brandonmuirhead/kindle-anew --public --source . --push` (name is the user's call; suggest `kindle-anew`).
 2.3 Enable Pages from `main` / `docs`:
@@ -207,7 +207,7 @@ every painting fully visible with a legible caption; `index.json` matches.
 
 **Acceptance:** both URLs load; `BASE_URL` is recorded in `kindle/artframe/config.sh`.
 
-### Phase 3 — Kindle client (Sonnet writes to the spec in §5; Fable reviews line by line before it touches the device)
+### Phase 3 — Kindle client — **DONE 2026-09-04** (Sonnet wrote it; Fable reviewed, added `curl --fail`; staged on the device with `INTERVAL_MINUTES_TEST=3` for the first run)
 3.1 `loop.sh`, `config.sh`, `fetch.sh`, the three scriptlets, `charge.png`.
 3.2 Obtain `xh`: download `kindle-dash-v1.0.0-beta.4.tgz` from `https://github.com/pascalw/kindle-dash/releases` (4.4 MB), extract, take `xh` only.
 3.3 Static checks on the PC: shellcheck-style review by Fable; scripts must be POSIX `sh` (busybox ash), LF line endings, no bashisms

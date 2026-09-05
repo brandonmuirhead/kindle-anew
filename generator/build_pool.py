@@ -193,10 +193,12 @@ def main():
 
     config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     start_day = int(time.time() // 86400)
-    with open(config.OUTPUT_DIR / "pool.txt", "w", encoding="utf-8") as f:
+    # newline="\n": the Kindle parses pool.txt with busybox sed/tr, and on
+    # Windows text mode would otherwise write CRLF.
+    with open(config.OUTPUT_DIR / "pool.txt", "w", encoding="utf-8", newline="\n") as f:
         f.write(f"{final_count}\n{start_day}\n")
 
-    with open(config.OUTPUT_DIR / "index.json", "w", encoding="utf-8") as f:
+    with open(config.OUTPUT_DIR / "index.json", "w", encoding="utf-8", newline="\n") as f:
         json.dump(index, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
