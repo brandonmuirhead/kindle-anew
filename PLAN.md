@@ -22,6 +22,25 @@ Everything stated as a fact below was verified unless marked *assumed* or *to co
 | Storage | 3.04 GB, 2.81 GB free, FAT32, mounts as `D:` (label "Kindle") | `Get-Volume` |
 | Has been used | 76 items in `documents/`; device booted Aug 2026 (so the battery works) | USB listing |
 
+### Second device — Kindle Paperwhite 4 (added 2026-09-13)
+| Item | Value | How verified |
+|---|---|---|
+| Model | **Kindle Paperwhite 4** (2018, 10th gen, "KPW4", i.MX7D "Rex") | serial `G000PP…`; FBInk: "PaperWhite 4 (0PP -> 0x2F7 => Moonshine on Rex)" |
+| Screen | **1072 × 1448 px** — identical to the PW3, so the art pool is reused unchanged | `eips -i` |
+| Firmware | **5.14.3.0.1**, kernel 4.1.15-lab126, busybox 1.28.3, curl 7.76.1 | `version.txt`, diagnostics |
+| Firmware status | **NOT final.** PW4 still receives OTAs; 5.18.1+ breaks WinterBreak. Mitigated by WinterBreak's update block **plus** ~5.8 GB of filler (`D:\OTABLOCK{1,2}.dat`) left permanently at the drive root | kindlemodding release notes |
+| Jailbroken? | **Yes, 2026-09-13** via WinterBreak v2.1.0. Required deleting the stale 2021 Store `LocalStorage` first, or the Store loads its cached page instead of Mesquito | on-device |
+| Storage | 8 GB (6.2 GB user), FAT32, mounts as `D:` | `Get-Volume` |
+| Wake RTC | **`rtc0`** (`bd71827-rtc`, PMIC, wall-clock). `rtc1` is `snvs-rtc-lp` whose `since_epoch` counts from boot (682 at probe) — it accepts an alarm it will not wake on | diag + first run |
+| `/sys/power/state` | `freeze standby mem` (PW3: `standby mem`) | diag |
+| Front light | node `lm3695-backlight.0` (PW3: `max77696-bl`); `lipc-set-prop com.lab126.powerd flIntensity 0` works on both | first run |
+| Verified working | `rtc=/sys/class/rtc/rtc0`, `resumed after 175s asleep`, curl HTTPS 200, `eips -f -g` paint, front light off | `logs/artframe.log` 2026-09-13 |
+
+**Consequence for `loop.sh`:** the RTC index is not stable across models, and the old
+"try rtc1, fall back to rtc0 if the alarm reads back empty" logic does not discriminate.
+`arm_alarm()` now selects the RTC whose `since_epoch` is plausible wall-clock time
+(the PMIC one on both models), with `RTC_DEV` in `config.sh` as a manual override.
+
 ### The PC (build/host machine, Windows 11)
 Python 3.14.3 + Pillow 12.1.1, git 2.53, GitHub CLI 2.93 logged in as `brandonmuirhead`, GNU tar (extracts `.tar.gz`).
 No ImageMagick, no 7-Zip (neither is needed).

@@ -151,22 +151,63 @@ next_wake_now() {
 
 # --- suspend / RTC alarm -----------------------------------------------------
 
+# Which RTC actually wakes the SoC differs by model, and the index is NOT
+# stable: on the PW3 (i.MX6SL "Wario") the PMIC RTC is rtc1 (max77696-rtc,
+# rtc0 is its second alarm and rtc2 is snvs_rtc), while on the PW4 (i.MX7D
+# "Rex") it is rtc0 (bd71827-rtc) and rtc1 is snvs-rtc-lp, which counts from
+# boot rather than carrying wall-clock time. Hardcoding either index breaks
+# the other model, and "did the alarm read back" does not discriminate -- the
+# SNVS RTC happily accepts an alarm it will not wake on.
+#
+# So: prefer whichever RTC reports a plausible wall-clock since_epoch (the
+# PMIC one, on both models), then try the rest in order. RTC_DEV in config.sh
+# overrides the choice entirely if a future model needs pinning.
+RTC_CANDIDATES="/sys/class/rtc/rtc1 /sys/class/rtc/rtc0 /sys/class/rtc/rtc2"
+
+# True if $1 is an RTC whose since_epoch looks like real wall-clock time
+# (>= 2001-09-09) rather than a counter started at boot.
+rtc_is_wallclock() {
+  v=$(cat "$1/since_epoch" 2>/dev/null)
+  case "$v" in ''|*[!0-9]*) return 1 ;; esac
+  [ "$v" -ge 1000000000 ]
+}
+
+# Echoes the RTCs to try, best first.
+rtc_order() {
+  preferred=""
+  rest=""
+  if [ -n "$RTC_DEV" ] && [ -e "$RTC_DEV/wakealarm" ]; then
+    preferred="$RTC_DEV"
+  fi
+  for r in $RTC_CANDIDATES; do
+    [ -e "$r/wakealarm" ] || continue
+    [ "$r" = "$preferred" ] && continue
+    if [ -z "$preferred" ] && rtc_is_wallclock "$r"; then
+      preferred="$r"
+    else
+      rest="$rest $r"
+    fi
+  done
+  echo "$preferred$rest"
+}
+
 # Arms the RTC wakealarm for $1 seconds from now (clearing any pending alarm
-# first), reads it back, and falls back from rtc1 to rtc0 if the read-back is
-# empty. Sets RTC_USED and ALARM_AT (epoch seconds, or empty on failure).
+# first) on the best available RTC, reading it back to confirm. Sets RTC_USED
+# and ALARM_AT (epoch seconds), or leaves ALARM_AT empty and returns 1 if no
+# RTC accepted the alarm.
 arm_alarm() {
   secs="$1"
-  RTC_USED=/sys/class/rtc/rtc1
-  echo "" >"$RTC_USED/wakealarm" 2>/dev/null
-  echo "+$secs" >"$RTC_USED/wakealarm" 2>/dev/null
-  ALARM_AT=$(cat "$RTC_USED/wakealarm" 2>/dev/null)
-  if [ -z "$ALARM_AT" ]; then
-    log "rtc1 wakealarm read back empty, falling back to rtc0"
-    RTC_USED=/sys/class/rtc/rtc0
-    echo "" >"$RTC_USED/wakealarm" 2>/dev/null
-    echo "+$secs" >"$RTC_USED/wakealarm" 2>/dev/null
-    ALARM_AT=$(cat "$RTC_USED/wakealarm" 2>/dev/null)
-  fi
+  RTC_USED=""
+  ALARM_AT=""
+  for r in $(rtc_order); do
+    echo "" >"$r/wakealarm" 2>/dev/null
+    echo "+$secs" >"$r/wakealarm" 2>/dev/null
+    a=$(cat "$r/wakealarm" 2>/dev/null)
+    case "$a" in ''|*[!0-9]*) log "$r did not accept a wakealarm, trying the next"; continue ;; esac
+    RTC_USED="$r"
+    ALARM_AT="$a"
+    break
+  done
   [ -n "$ALARM_AT" ]
 }
 
@@ -180,9 +221,19 @@ suspend_once() {
   secs="$1"
   arm_alarm "$secs"
   se=$(cat "$RTC_USED/since_epoch" 2>/dev/null)
+  # A pending alarm the system set on another RTC can wake us early without a
+  # button being pressed. Only compare against RTCs that share our wall-clock
+  # timebase -- a boot-relative one (PW4's snvs-rtc-lp) is not comparable.
   other_alarm=""
-  [ "$RTC_USED" != /sys/class/rtc/rtc0 ] && other_alarm=$(cat /sys/class/rtc/rtc0/wakealarm 2>/dev/null)
-  log "wakealarm=$ALARM_AT since_epoch=$se rtc=$RTC_USED rtc0_alarm=[$other_alarm]"
+  for r in $RTC_CANDIDATES; do
+    [ "$r" = "$RTC_USED" ] && continue
+    rtc_is_wallclock "$r" || continue
+    v=$(cat "$r/wakealarm" 2>/dev/null)
+    case "$v" in ''|*[!0-9]*) continue ;; esac
+    other_alarm="$v"
+    break
+  done
+  log "wakealarm=$ALARM_AT since_epoch=$se rtc=$RTC_USED other_alarm=[$other_alarm]"
   before=$(date -u +%s)
   if ! echo mem >/sys/power/state 2>/dev/null; then
     log "suspend write to /sys/power/state failed - refused"
@@ -199,7 +250,7 @@ suspend_once() {
   case "$rtc_now$ALARM_AT" in *[!0-9]*|'') rtc_now="" ;; esac
   if [ -n "$rtc_now" ] && [ "$rtc_now" -lt $(( ALARM_AT - 5 )) ]; then
     if [ -n "$other_alarm" ] && [ "$rtc_now" -ge $(( other_alarm - 5 )) ] && [ "$rtc_now" -le $(( other_alarm + 5 )) ]; then
-      log "woke early after ${elapsed}s at the system's rtc0 alarm, not a button press"
+      log "woke early after ${elapsed}s at the system's own RTC alarm, not a button press"
     else
       EARLY_WAKE=1
       log "woke early after ${elapsed}s (our alarm was $(( ALARM_AT - rtc_now ))s away): treating as a power-button press"

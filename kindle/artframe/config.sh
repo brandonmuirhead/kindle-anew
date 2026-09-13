@@ -15,3 +15,8 @@ WIFI_TIMEOUT=90          # seconds to wait for network after wake
 RETRY_SECS=3600          # sleep before retrying after a failed fetch
 LOW_BATTERY_PCT=10
 INTERVAL_MINUTES_TEST=0  # >0 overrides the daily schedule (for testing only)
+
+# Which RTC arms the wake alarm. Leave empty to auto-detect (loop.sh picks the
+# RTC whose since_epoch is real wall-clock time, which is the PMIC one: rtc1 on
+# the PW3, rtc0 on the PW4). Set e.g. /sys/class/rtc/rtc0 to pin it.
+RTC_DEV=""

@@ -1,7 +1,8 @@
 # Kindle Art Frame
 
-Turn a jailbroken Kindle Paperwhite 3 into a Wi-Fi-updated e-ink display of
-famous, public-domain paintings. The Kindle wakes once a day (or every other
+Turn a jailbroken Kindle Paperwhite **3 or 4** into a Wi-Fi-updated e-ink
+display of famous, public-domain paintings. Both models have the same
+1072x1448 panel, so one art pool and one set of scripts serve both. The Kindle wakes once a day (or every other
 day), fetches the next picture from a static GitHub Pages site, paints it in
 full-screen e-ink refresh, turns its front light off, and goes back to deep
 sleep on an RTC alarm — so the only power it spends is a ~20-30 s burst of
@@ -131,10 +132,16 @@ Do these in order the first time; after that, just leave it running.
    Copy the file back to the device.
 3. **Tap `ArtFrame-Start`.** You'll briefly see "Art Frame starting - the
    screen will change in about 15 s" on screen, then the UI disappears, the
-   first picture is painted, and the device suspends. Confirm on your own
-   clock that it wakes up, fetches and repaints roughly every 3 minutes for
-   a couple of cycles (check `D:\artframe\logs\artframe.log` over USB to
-   see timestamps and battery readings for each iteration).
+   first picture is painted, and the device suspends.
+
+   **The picture will not change during the test.** `INTERVAL_MINUTES_TEST`
+   overrides only the *wake cadence*, not the image: the pool index is
+   derived from the day number, so every cycle within the same UTC day
+   resolves to the same file. What you should see is the e-ink **full-refresh
+   flash** every N minutes as `eips -f -g` repaints the identical picture.
+   The real confirmation is `D:\artframe\logs\artframe.log` over USB - look
+   for a `resumed after ~Ns asleep` line per cycle, and check which RTC was
+   chosen (`rtc=/sys/class/rtc/rtcN`).
 4. **Switch to the real schedule.** Once you've confirmed a couple of
    successful test cycles, stop the loop (see below), set
    `INTERVAL_MINUTES_TEST=0` in `config.sh`, adjust `WAKE_HOUR_UTC` /
@@ -185,14 +192,39 @@ the hardware itself:
 | `WIFI_TIMEOUT` | `90` | Seconds to wait for Wi-Fi before giving up for this cycle. |
 | `RETRY_SECS` | `3600` | How long to sleep before retrying after a failed Wi-Fi wait or fetch (the current picture stays on screen). |
 | `LOW_BATTERY_PCT` | `10` | Below this battery percentage, `charge.png` is shown instead of fetching, and the device sleeps 24 h before checking again. |
-| `INTERVAL_MINUTES_TEST` | `0` | Set > 0 to override the whole daily schedule with "wake every N minutes", for testing only. Set back to `0` for normal use. |
+| `INTERVAL_MINUTES_TEST` | `0` | Set > 0 to override the whole daily wake *cadence* with "wake every N minutes", for testing only. Does **not** advance the picture - the index still comes from the day number. Set back to `0` for normal use. |
+| `RTC_DEV` | `""` (auto) | Pin the wake-alarm RTC, e.g. `/sys/class/rtc/rtc0`. Empty means auto-detect, which is correct on both the PW3 and the PW4 - see **Which RTC wakes the device**. |
+
+## Which RTC wakes the device
+
+The RTC index that actually wakes the SoC is **not stable across models**:
+
+| | Paperwhite 3 (i.MX6SL "Wario") | Paperwhite 4 (i.MX7D "Rex") |
+|---|---|---|
+| `rtc0` | `max77696-rtc` (PMIC) | **`bd71827-rtc` (PMIC)** <- wakes |
+| `rtc1` | **`max77696-rtc` (PMIC)** <- wakes | `snvs-rtc-lp`, `since_epoch` counts from boot |
+| `rtc2` | `snvs_rtc` | (absent) |
+
+Hardcoding an index breaks the other model, and "did the alarm read back?"
+does not discriminate - the PW4's SNVS RTC happily *accepts* an alarm it will
+never wake on. So `arm_alarm()` picks whichever RTC reports a plausible
+wall-clock `since_epoch` (>= 1e9), which is the PMIC one on both models, and
+falls through to the others only if that fails. Set `RTC_DEV` in `config.sh`
+to pin it if a future model needs it.
+
+Confirm the choice in `artframe.log`:
+
+```
+wakealarm=1789325606 since_epoch=1789325427 rtc=/sys/class/rtc/rtc0 other_alarm=[]
+resumed after 175s asleep
+```
 
 ## Troubleshooting
 
 | Symptom | Likely cause | What to do |
 |---|---|---|
 | Tapping the scriptlet does nothing, or WinterBreak's store step fails | Kindle not registered to Amazon, or the Kindle Store didn't load Mesquito | Register the Kindle (Settings → My Account) and retry; if the store still shows only its normal page, delete `.active_content_sandbox/store/resource/LocalStorage` and retry; failing that, use LanguageBreak (fully offline) instead |
-| Device never wakes up after the first sleep | `rtc1`'s alarm isn't actually waking the SoC | Check `artframe.log` for the `wakealarm=… since_epoch=…` line right before each sleep — it should read back non-empty and roughly `since_epoch + sleep_secs`; if it's empty, `loop.sh` already falls back to `rtc0` automatically. As a last resort, hold power ~40 s to reboot and try `rtcwake` manually via `ArtFrame-Diagnostics.sh`'s output for clues |
+| Device never wakes up after the first sleep | The chosen RTC's alarm isn't actually waking the SoC | Check `artframe.log` for the `wakealarm=… since_epoch=… rtc=…` line before each sleep — `wakealarm` should read back roughly `since_epoch + sleep_secs`, and `rtc=` should name the PMIC RTC (`rtc1` on a PW3, `rtc0` on a PW4). If it picked the wrong one, pin it with `RTC_DEV` in `config.sh` |
 | `echo mem > /sys/power/state` returns almost immediately, screen never changes again | A wakelock is held (suspend refused) | `loop.sh` detects a return within 30 s as a refusal, retries every 60 s, and after 10 failures falls back to a plain `sleep` (so the device stays awake but still keeps schedule) — check `lipc-get-prop com.lab126.powerd status` in the diagnostics output and confirm `initctl stop lab126_gui` actually ran |
 | Wi-Fi never reconnects after waking | wifid didn't re-associate on resume | `loop.sh` already nudges `com.lab126.cmd wirelessEnable` and `com.lab126.wifid enable` after 30 s of failed pings; if it still times out after `WIFI_TIMEOUT`, it sleeps `RETRY_SECS` and tries again on the next cycle, keeping the current picture in the meantime |
 | Fetch fails / falls back to `wget` | The `xh` binary won't execute (ABI mismatch) or `/mnt/us` behaves as `noexec` on your build | `fetch.sh` already tries `curl` (built-in, verified against GitHub over HTTPS) first, then `xh` from `/mnt/us/artframe` and again from `/var/tmp`, then `wget --no-check-certificate` as a last resort; check `artframe.log` to see which one actually succeeded |
@@ -202,10 +234,19 @@ the hardware itself:
 
 ## The jailbreak
 
-This device was jailbroken with **[WinterBreak](https://kindlemodding.org/jailbreaking/WinterBreak)**
-(v2.1.0), which works on firmware ≤ 5.18.0 and therefore covers this
-Paperwhite 3's 5.16.2.1.1 (the final firmware ever shipped for this model,
-so there's no OTA update that could ever undo it). The procedure: airplane
+Both devices were jailbroken with **[WinterBreak](https://kindlemodding.org/jailbreaking/WinterBreak)**
+(v2.1.0), which works on firmware below 5.18.1 and therefore covers the
+Paperwhite 3's 5.16.2.1.1 and the Paperwhite 4's 5.14.3.0.1.
+
+**The PW3 is on its final firmware; the PW4 is not.** 5.16.3+ dropped PW3
+support, so no OTA can ever undo that jailbreak. The PW4 is still supported,
+and an OTA to 5.18.1+ *would* break it. WinterBreak installs an update block,
+and as a second line of defence the PW4 keeps ~5.8 GB of filler files
+(`D:\OTABLOCK1.dat`, `D:\OTABLOCK2.dat`) permanently at the drive root, so an
+update image has nowhere to download to; the frame itself only ever needs
+room for one ~350 KB PNG at a time. On a fresh PW4, also delete any stale
+`.active_content_sandbox\store\resource\LocalStorage` before running
+WinterBreak, or the Store loads its cached page instead of Mesquito. The procedure: airplane
 mode → reboot → copy the release's files onto the Kindle over USB → eject →
 open the Kindle Store, which loads a modified page ("Mesquito") → tap
 **WinterBreak** → wait for it to finish → the UI restarts jailbroken. It
