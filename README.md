@@ -188,12 +188,52 @@ the hardware itself:
 | `BASE_URL` | `https://brandonmuirhead.github.io/kindle-anew` | Where `pool.txt` and `art/NNN.png` are fetched from. No trailing slash. |
 | `WAKE_HOUR_UTC` | `9` | Hour (0-23, UTC) the daily refresh targets. 9 = 04:00 EST / 05:00 EDT. |
 | `INTERVAL_DAYS` | `1` | `1` = new picture every day, `2` = every other day, etc. |
-| `WIFI_TEST_IP` | `1.1.1.1` | Address pinged to detect that Wi-Fi has come up after wake. |
-| `WIFI_TIMEOUT` | `90` | Seconds to wait for Wi-Fi before giving up for this cycle. |
+| `WIFI_TEST_IP` | `1.1.1.1` | Address pinged to detect that Wi-Fi has come up after wake. If ping never answers, the loop also tries a real HTTPS fetch of `BASE_URL/pool.txt` every 15 s - see **Networks that block ping**. |
+| `WIFI_TIMEOUT` | `90` | Seconds to wait for usable network (either probe) before giving up for this cycle. |
 | `RETRY_SECS` | `3600` | How long to sleep before retrying after a failed Wi-Fi wait or fetch (the current picture stays on screen). |
 | `LOW_BATTERY_PCT` | `10` | Below this battery percentage, `charge.png` is shown instead of fetching, and the device sleeps 24 h before checking again. |
 | `INTERVAL_MINUTES_TEST` | `0` | Set > 0 to override the whole daily wake *cadence* with "wake every N minutes", for testing only. Does **not** advance the picture - the index still comes from the day number. Set back to `0` for normal use. |
 | `RTC_DEV` | `""` (auto) | Pin the wake-alarm RTC, e.g. `/sys/class/rtc/rtc0`. Empty means auto-detect, which is correct on both the PW3 and the PW4 - see **Which RTC wakes the device**. |
+
+## Moving the frame to another network
+
+The loop stops the Kindle UI (`initctl stop lab126_gui`), so there is no
+Settings screen while it runs. To change Wi-Fi:
+
+1. Hold power ~40 s to reboot - the normal UI comes back
+2. **Settings -> Wi-Fi**, join the new network
+3. Tap **ArtFrame-Start**
+
+`config.sh` and `offset.txt` persist, so it resumes on the right picture.
+
+### Networks that block ping
+
+`wait_for_wifi()` pings `WIFI_TEST_IP` once a second, but many corporate and
+guest networks drop outbound ICMP while HTTPS works perfectly. On those, a
+ping-only check would time out every cycle and the frame would silently keep
+yesterday's picture. So every 15 s the loop also tries a real
+`curl` of `BASE_URL/pool.txt` - the exact request it needs - and proceeds as
+soon as either probe succeeds. The log says which one won:
+
+```
+wifi up after 4s (ping)
+wifi up after 15s (HTTPS to BASE_URL; ping to 1.1.1.1 never answered - ICMP is probably blocked on this network)
+```
+
+### Before trusting a restrictive network
+
+Join it, tap **ArtFrame-Diagnostics** (safe - never stops the UI, never
+suspends), then read `D:\artframe\diag.txt`. Its **network path** and
+**BASE_URL reachability** sections answer the three questions that matter:
+
+* **Captive portal?** `pool.txt` comes back as HTML instead of two numbers.
+  Nothing in the loop can click through a portal, and portals re-expire - use
+  a different network.
+* **ICMP blocked?** The gateway or `1.1.1.1` ping fails but the `curl` of
+  `BASE_URL` returns `http=200`. Harmless - the HTTPS fallback covers it.
+* **TLS intercepted?** The plain `curl` fails while the `-k` one returns
+  `http=200`, meaning a proxy is presenting a CA this Kindle (OpenSSL 1.0.2q,
+  2018 bundle) does not trust.
 
 ## Which RTC wakes the device
 
@@ -226,6 +266,7 @@ resumed after 175s asleep
 | Tapping the scriptlet does nothing, or WinterBreak's store step fails | Kindle not registered to Amazon, or the Kindle Store didn't load Mesquito | Register the Kindle (Settings → My Account) and retry; if the store still shows only its normal page, delete `.active_content_sandbox/store/resource/LocalStorage` and retry; failing that, use LanguageBreak (fully offline) instead |
 | Device never wakes up after the first sleep | The chosen RTC's alarm isn't actually waking the SoC | Check `artframe.log` for the `wakealarm=… since_epoch=… rtc=…` line before each sleep — `wakealarm` should read back roughly `since_epoch + sleep_secs`, and `rtc=` should name the PMIC RTC (`rtc1` on a PW3, `rtc0` on a PW4). If it picked the wrong one, pin it with `RTC_DEV` in `config.sh` |
 | `echo mem > /sys/power/state` returns almost immediately, screen never changes again | A wakelock is held (suspend refused) | `loop.sh` detects a return within 30 s as a refusal, retries every 60 s, and after 10 failures falls back to a plain `sleep` (so the device stays awake but still keeps schedule) — check `lipc-get-prop com.lab126.powerd status` in the diagnostics output and confirm `initctl stop lab126_gui` actually ran |
+| Frame stopped updating after moving it to a work/guest network | Captive portal, blocked ICMP, or TLS interception | Tap `ArtFrame-Diagnostics` on that network and read the **BASE_URL reachability** section of `diag.txt` — see **Before trusting a restrictive network** |
 | Wi-Fi never reconnects after waking | wifid didn't re-associate on resume | `loop.sh` already nudges `com.lab126.cmd wirelessEnable` and `com.lab126.wifid enable` after 30 s of failed pings; if it still times out after `WIFI_TIMEOUT`, it sleeps `RETRY_SECS` and tries again on the next cycle, keeping the current picture in the meantime |
 | Fetch fails / falls back to `wget` | The `xh` binary won't execute (ABI mismatch) or `/mnt/us` behaves as `noexec` on your build | `fetch.sh` already tries `curl` (built-in, verified against GitHub over HTTPS) first, then `xh` from `/mnt/us/artframe` and again from `/var/tmp`, then `wget --no-check-certificate` as a last resort; check `artframe.log` to see which one actually succeeded |
 | `eips -f -g` shows a garbled or blank image | The PNG isn't 8-bit grayscale, has alpha, or isn't exactly 1072x1448 | The generator always writes mode `L`, exact size, no alpha; `fetch.sh` rejects anything that doesn't start with the PNG signature, and `loop.sh` additionally rejects any downloaded art file under 10 KB. Re-run `build_pool.py` if a specific file looks wrong |

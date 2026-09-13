@@ -81,29 +81,56 @@ frontlight_off() {
 
 # --- Wi-Fi -------------------------------------------------------------------
 
-# Pings WIFI_TEST_IP once a second for up to WIFI_TIMEOUT seconds. After 30 s
-# of failure, nudges wifid/cmd back on once. Returns 0 once a ping succeeds,
-# 1 on timeout.
+# How often (seconds) to fall back to a real HTTPS request while waiting.
+HTTPS_PROBE_EVERY=15
+
+# Fetches BASE_URL/pool.txt to /dev/null. This is the exact path the loop
+# needs, so it is the most honest "is the network usable" question we can ask.
+https_probe() {
+  curl -fsS -L --max-time 10 -o /dev/null "$BASE_URL/pool.txt" 2>/dev/null
+}
+
+# Waits up to WIFI_TIMEOUT seconds for usable network. The primary probe is a
+# ping to WIFI_TEST_IP, but plenty of corporate and guest networks drop
+# outbound ICMP while HTTPS works perfectly, so every HTTPS_PROBE_EVERY
+# seconds we also try https_probe(). After 30 s of failure, nudges wifid/cmd
+# back on once. Returns 0 as soon as either probe succeeds, 1 on timeout.
+#
+# Elapsed time is measured from the clock rather than counted in sleeps,
+# because an HTTPS probe can itself block for up to 10 s.
+#
+# Note: on a captive portal the HTTPS probe can succeed while returning the
+# portal's own HTML. That is deliberate -- we then proceed and fail loudly at
+# "pool.txt invalid" in the log, which is far easier to diagnose than a bare
+# wifi timeout.
 wait_for_wifi() {
-  waited=0
+  start=$(date -u +%s)
   nudged=0
+  next_https=$HTTPS_PROBE_EVERY
   while :; do
     if ping -c 1 "$WIFI_TEST_IP" >/dev/null 2>&1; then
-      log "wifi up after ${waited}s"
+      log "wifi up after $(( $(date -u +%s) - start ))s (ping)"
       return 0
     fi
+    if [ "$(( $(date -u +%s) - start ))" -ge "$next_https" ]; then
+      if https_probe; then
+        log "wifi up after $(( $(date -u +%s) - start ))s (HTTPS to BASE_URL; ping to $WIFI_TEST_IP never answered - ICMP is probably blocked on this network)"
+        return 0
+      fi
+      next_https=$(( $(date -u +%s) - start + HTTPS_PROBE_EVERY ))
+    fi
+    waited=$(( $(date -u +%s) - start ))
     if [ "$waited" -ge "$WIFI_TIMEOUT" ]; then
-      log "wifi wait timed out after ${WIFI_TIMEOUT}s"
+      log "wifi wait timed out after ${waited}s (neither ping nor HTTPS to BASE_URL succeeded)"
       return 1
     fi
     if [ "$waited" -ge 30 ] && [ "$nudged" -eq 0 ]; then
-      log "wifi still down after 30s, nudging wifid/cmd back on"
+      log "wifi still down after ${waited}s, nudging wifid/cmd back on"
       lipc-set-prop com.lab126.cmd wirelessEnable 1 2>/dev/null
       lipc-set-prop com.lab126.wifid enable 1 2>/dev/null
       nudged=1
     fi
     sleep 1
-    waited=$((waited + 1))
   done
 }
 

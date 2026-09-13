@@ -70,6 +70,45 @@ run lipc-get-prop com.lab126.cmd wirelessEnable
 run ifconfig wlan0
 run ping -c 2 -W 3 1.1.1.1
 
+sec "network path (separates 'no network' from 'ICMP blocked')"
+run route -n
+GW=$(route -n 2>/dev/null | awk '$1=="0.0.0.0"{print $2; exit}')
+echo "default gateway=[$GW]"
+[ -n "$GW" ] && run ping -c 2 -W 3 "$GW"
+run cat /etc/resolv.conf
+if command -v nslookup >/dev/null 2>&1; then
+  run nslookup brandonmuirhead.github.io
+fi
+
+sec "BASE_URL reachability (exactly what the frame fetches)"
+BASE_URL=""
+[ -f "$D/config.sh" ] && . "$D/config.sh"
+echo "BASE_URL=[$BASE_URL]"
+if [ -n "$BASE_URL" ]; then
+  echo "\$ curl $BASE_URL/pool.txt"
+  curl -sS -o /var/tmp/diag_pool.txt \
+       -w 'http=%{http_code} ssl_verify=%{ssl_verify_result} time=%{time_total}s size=%{size_download}\n' \
+       --max-time 30 "$BASE_URL/pool.txt" 2>&1
+  echo "[exit $?]"
+  echo "--- pool.txt contents (expect two numbers: count, start-day) ---"
+  cat /var/tmp/diag_pool.txt 2>&1
+  echo "--- if that is HTML, this network has a captive portal or a filter ---"
+
+  echo "\$ curl $BASE_URL/art/001.png"
+  curl -sS -o /var/tmp/diag_art.png \
+       -w 'http=%{http_code} ssl_verify=%{ssl_verify_result} time=%{time_total}s size=%{size_download}\n' \
+       --max-time 60 "$BASE_URL/art/001.png" 2>&1
+  echo "[exit $?]"
+  run ls -la /var/tmp/diag_art.png
+  echo "--- first 8 bytes (a real PNG is 137 80 78 71 13 10 26 10) ---"
+  od -An -tu1 -N8 /var/tmp/diag_art.png 2>&1
+
+  echo "--- same request with -k: if this succeeds where the above failed,"
+  echo "--- a proxy is intercepting TLS with a CA this Kindle does not trust ---"
+  run curl -k -sS -o /dev/null -w '%{http_code}\n' --max-time 30 "$BASE_URL/pool.txt"
+  rm -f /var/tmp/diag_pool.txt /var/tmp/diag_art.png
+fi
+
 sec "xh from /var/tmp (noexec workaround)"
 run cp "$D/xh" /var/tmp/xh
 run chmod +x /var/tmp/xh
