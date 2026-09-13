@@ -1,0 +1,55 @@
+[2026-09-13 18:49:57] backlight nodes: total 0 drwxr-xr-x    2 root     root             0 Feb  1  2022 . drwxr-xr-x   47 root     root             0 Feb  1  2022 .. lrwxrwxrwx    1 root     root             0 Feb  1  2022 bl -> ../../devices/soc0/soc/2100000.aips-bus/21a0000.i2c/i2c-0/0-0063/lm3695-backlight.0/backlight/bl 
+[2026-09-13 18:49:57] flIntensity now: 0
+lab126_gui stop/waiting
+[2026-09-13 18:50:06] --- iteration start ---
+[2026-09-13 18:50:06] battery=99%
+[2026-09-13 18:50:06] wifi up after 0s
+[2026-09-13 18:50:06] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-13 18:50:08] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-13 18:50:08] day-index: count=160 start=20701 interval=1 offset=152 -> idx=1 file=001.png
+[2026-09-13 18:50:08] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-13 18:50:12] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G2
+[2026-09-13 18:50:19] painted 001.png
+[2026-09-13 18:50:26] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-13 18:50:26] sleeping 180s, battery 99%
+[2026-09-13 18:50:31] wakealarm=1789325606 since_epoch=1789325427 rtc=/sys/class/rtc/rtc0 other_alarm=[]
+[2026-09-13 18:53:28] resumed after 175s asleep
+[2026-09-13 18:53:32] --- iteration start ---
+[2026-09-13 18:53:39] battery=99%
+[2026-09-13 18:53:45] wifi up after 4s
+[2026-09-13 18:53:45] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-13 18:53:49] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-13 18:53:50] day-index: count=160 start=20701 interval=1 offset=152 -> idx=1 file=001.png
+[2026-09-13 18:53:50] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-13 18:53:52] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G2
+[2026-09-13 18:54:02] painted 001.png
+[2026-09-13 18:54:06] next wake in 180s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=3)
+[2026-09-13 18:54:06] sleeping 180s, battery 99%
+[2026-09-13 18:54:06] wakealarm=1789325827 since_epoch=1789325647 rtc=/sys/class/rtc/rtc0 other_alarm=[]
+[2026-09-13 19:06:17] backlight nodes: total 0 drwxr-xr-x    2 root     root             0 Sep 13 13:57 . drwxr-xr-x   47 root     root             0 Sep 13 13:57 .. lrwxrwxrwx    1 root     root             0 Sep 13 13:57 bl -> ../../devices/soc0/soc/2100000.aips-bus/21a0000.i2c/i2c-0/0-0063/lm3695-backlight.0/backlight/bl 
+[2026-09-13 19:06:18] flIntensity now: 0
+lab126_gui stop/waiting
+[2026-09-13 19:06:26] --- iteration start ---
+[2026-09-13 19:06:26] battery=99%
+[2026-09-13 19:06:26] wifi up after 0s
+[2026-09-13 19:06:26] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/pool.txt
+[2026-09-13 19:06:27] fetch.sh: curl OK -> /mnt/us/artframe/pool.txt.tmp
+[2026-09-13 19:06:27] day-index: count=160 start=20701 interval=1 offset=152 -> idx=1 file=001.png
+[2026-09-13 19:06:27] fetch.sh: trying curl: https://brandonmuirhead.github.io/kindle-anew/art/001.png
+[2026-09-13 19:06:28] fetch.sh: curl OK -> /mnt/us/artframe/new.png
+update_to_display: update_mode=FULL, wave_mode=2 inverted=0
+swipe feature is not supported in this platfom G2
+[2026-09-13 19:06:29] painted 001.png
+[2026-09-13 19:06:32] next wake in 50008s (WAKE_HOUR_UTC=9 INTERVAL_DAYS=1 INTERVAL_MINUTES_TEST=0)
+[2026-09-13 19:06:32] sleeping 50008s, battery 99%
+[2026-09-13 19:06:32] wakealarm=1789376401 since_epoch=1789326393 rtc=/sys/class/rtc/rtc0 other_alarm=[]
+[2026-09-13 19:12:52] woke early after 380s (our alarm was 49629s away): treating as a power-button press
+[2026-09-13 19:12:52] --- iteration start ---
+[2026-09-13 19:12:52] power button: skipping to the next picture (offset now 153)
+[2026-09-13 19:12:53] powerd after button wake: Powerd state: Active Remaining time in this state: Unknown defer_suspend:0 suspend_grace:0 prevent_screen_saver:1 drive_mode_state:3 PRIMARY BATTERY Battery Level: 99% Last batt event at: 98% Charging: Yes Battery logging: On 
+[2026-09-13 19:12:53] dmesg tail: [  519.999752] Connecting with ff:ff:ff ssid "A*****************d" len (19) channel=0||[  520.158710] bd71827-rtc bd71827-rtc: bd71827_rtc_alarm_irq_enable: disable rtc alarm|[  520.160589] bd71827-rtc bd71827-rtc: bd71827_rtc_alarm_irq_enable: disable rtc alarm|[  520.163974] bd71827-rtc bd71827-rtc: bd71827_rtc_set_alarm, rtc alarm set to 2026-09-13 20:12:53|[  520.164006] bd71827-rtc bd71827-rtc: bd71827_rtc_alarm_irq_enable: enable rtc alarm|
+[2026-09-13 19:12:53] battery=99%
