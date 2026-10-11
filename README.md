@@ -172,6 +172,10 @@ the hardware itself:
 * **Hold the power button for about 40 seconds** until the device reboots.
   The normal Kindle UI comes back on its own; you don't need to do anything
   else. (The Kindle still exports its USB drive while the loop runs, but the loop may be writing files at that moment, so reboot first, *then* plug in USB.)
+  The loop switches Wi-Fi off before every sleep to save battery, so after a
+  reboot the Kindle may come back in **airplane mode**; turn it off in the
+  quick-settings menu if you want Wi-Fi for normal reading. `ArtFrame-Start`
+  turns Wi-Fi back on by itself.
 * **Logs**: `D:\artframe\logs\artframe.log` — every step of every iteration
   (battery %, Wi-Fi wait, which file was fetched, paint, the RTC alarm
   read-back, suspend/resume timing) is appended with a UTC timestamp. The
