@@ -81,6 +81,20 @@ frontlight_off() {
 
 # --- Wi-Fi -------------------------------------------------------------------
 
+# We stop the Kindle framework, which is what normally switches the radio off
+# before the device sleeps, so we do it ourselves: off before every suspend,
+# on again at the start of every wait_for_wifi. Left on, the radio drained the
+# PW4 by 10-25% a day while "asleep" (log, Sep 2026).
+wifi_off() {
+  lipc-set-prop com.lab126.cmd wirelessEnable 0 2>/dev/null
+  sleep 3
+  log "wifi off for sleep (wirelessEnable=$(lipc-get-prop com.lab126.cmd wirelessEnable 2>&1))"
+}
+
+wifi_on() {
+  lipc-set-prop com.lab126.cmd wirelessEnable 1 2>/dev/null
+}
+
 # How often (seconds) to fall back to a real HTTPS request while waiting.
 HTTPS_PROBE_EVERY=15
 
@@ -104,6 +118,7 @@ https_probe() {
 # "pool.txt invalid" in the log, which is far easier to diagnose than a bare
 # wifi timeout.
 wait_for_wifi() {
+  wifi_on
   start=$(date -u +%s)
   nudged=0
   next_https=$HTTPS_PROBE_EVERY
@@ -294,6 +309,7 @@ enter_sleep() {
   [ "$sleep_secs" -lt 60 ] && sleep_secs=60
   [ "$sleep_secs" -gt 259200 ] && sleep_secs=259200
   log "sleeping ${sleep_secs}s, battery ${batt:-unknown}%"
+  wifi_off
   fails=0
   while [ "$fails" -lt 10 ]; do
     if suspend_once "$sleep_secs"; then
@@ -305,6 +321,27 @@ enter_sleep() {
   log "suspend refused 10 times in a row, falling back to plain sleep ${sleep_secs}s"
   sleep "$sleep_secs"
   return 0
+}
+
+# --- battery health ----------------------------------------------------------
+
+# Best-effort one-liner of whatever battery health readings this model exposes
+# (voltage, current, full vs design capacity, cycles), to tell a worn battery
+# from a software drain. Which nodes and gasgauge-info flags exist is not yet
+# known on either model, so every source is optional.
+battery_detail() {
+  out=""
+  for d in /sys/class/power_supply/*; do
+    [ -d "$d" ] || continue
+    for f in voltage_now current_now charge_now charge_full charge_full_design cycle_count; do
+      [ -r "$d/$f" ] && out="$out ${d##*/}/$f=$(cat "$d/$f" 2>/dev/null)"
+    done
+  done
+  for flag in -v -l -m; do
+    v=$(gasgauge-info "$flag" 2>/dev/null | head -1)
+    [ -n "$v" ] && out="$out gasgauge$flag=[$v]"
+  done
+  echo "${out:- none found}"
 }
 
 # --- main --------------------------------------------------------------------
@@ -340,6 +377,7 @@ main() {
     batt=$(gasgauge-info -c 2>/dev/null | tr -dc '0-9')
     [ -z "$batt" ] && { log "gasgauge-info returned no battery reading, assuming OK"; batt=100; }
     log "battery=${batt}%"
+    log "battery detail: $(battery_detail)"
 
     if [ "$batt" -lt "$LOW_BATTERY_PCT" ]; then
       log "battery ${batt}% < LOW_BATTERY_PCT=${LOW_BATTERY_PCT}%, showing charge screen"
