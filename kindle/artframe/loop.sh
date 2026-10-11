@@ -83,8 +83,8 @@ frontlight_off() {
 
 # We stop the Kindle framework, which is what normally switches the radio off
 # before the device sleeps, so we do it ourselves: off before every suspend,
-# on again at the start of every wait_for_wifi. Left on, the radio drained the
-# PW4 by 10-25% a day while "asleep" (log, Sep 2026).
+# on again at the start of every wait_for_wifi. A radio left on may explain the
+# PW4 losing 10-25% a day while "asleep" (log, Sep 2026); unconfirmed.
 wifi_off() {
   lipc-set-prop com.lab126.cmd wirelessEnable 0 2>/dev/null
   sleep 3
